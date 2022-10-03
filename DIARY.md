@@ -24,3 +24,18 @@ I have modified my initial draft of my project plan, replacing the risk table fo
 ---
 ## 02/10/2022
 Handed in my second draft of my project plan to my supervisor, with much more detail on what i will be using to do my research, what proof on concepts, reports and test tools i will be writing, and have written notes next to each of my milestones as to why each one is important. I will commit it to my Gitlab once it has been looked over tomorrow, in my meeting with Hugh.
+
+---
+## 03/10/2022
+
+### Meeting notes
+
+Two things to note
+
+    Abstract:
+        Acts like a pre-summary, 2 paragraphs
+        Sentence 1: purpose of the paper
+        Sentence 2: what it contains
+
+    Bibliography:
+        References and bibliography could serve as 1
