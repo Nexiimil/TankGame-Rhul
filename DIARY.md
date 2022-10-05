@@ -43,4 +43,8 @@ Two things to note
 ---
 ## 04/10/2022
 
-Uploaded my current unity files to the repo, realised that it was trying to sync my Library files, which unity generates itself, to the repo as well, which was trying to commit 10k file changes, which is not ideal, so a .gitignore was also added to make sure there was no issue. Was quite scary to see 10k additions. Turns out it was only about 150 files instead, and i dont think i even needed to commit my logs, or usersettings folders, but figured since nothing online mentioned it, i would simply commit them anyways, i can remove them later if they become an active issue
+Uploaded my current unity files to the repo, realised that it was trying to sync my Library files, which unity generates itself, to the repo as well, which was trying to commit 10k file changes, which is not ideal, so a .gitignore was also added to make sure there was no issue. Was quite scary to see 10k additions. Turns out it was only about 150 files instead, and i dont think i even needed to commit my logs, or usersettings folders, but figured since nothing online mentioned it, i would simply commit them anyways, i can remove them later if they become an active issue.
+
+---
+## 05/10/2022
+managed to complete a proof of conecpt, i have all basic motion and collision sorted, i now just need to focus on research and the further proof of concepts until i have a prototype. The prototype should be super required until my interim, but the prood of concept is good for my next meeting with Hugh. Next bit of research i will focus on is likely the major elements of a roguelike game, just so i can have everything i need infront of my when developing proofs of concpets, because in thoery all proofs can be derived from that bit of research in some form.
