@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour{
-[SerializeField]
-private Rigidbody2D rb;
+  [SerializeField]
+  private Rigidbody2D rb;
 
-[SerializeField]
-private float[] position = {0,0};
+  [SerializeField]
+  private float[] position = {0,0};
 
   void setRb(Rigidbody2D rb){this.rb = rb;}
   Rigidbody2D getRb(){return this.rb;}
@@ -21,11 +21,16 @@ private float[] position = {0,0};
   
   // Start is called before the first frame update
   void Start(){
-      setRb(GetComponent<Rigidbody2D>());
+    setRb(GetComponent<Rigidbody2D>());
   }
 
   // Update is called once per frame
   void Update(){
-      
+    setPosition(new float[] {Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")});
   }
+
+  void FixedUpdate(){
+    getRb().velocity = new Vector2(getPositionHorizontal(), getPositionVertical());
+  }
+
 }
