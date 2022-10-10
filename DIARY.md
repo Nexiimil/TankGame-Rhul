@@ -48,3 +48,12 @@ Uploaded my current unity files to the repo, realised that it was trying to sync
 ---
 ## 05/10/2022
 managed to complete a proof of conecpt, i have all basic motion and collision sorted, i now just need to focus on research and the further proof of concepts until i have a prototype. The prototype should be super required until my interim, but the prood of concept is good for my next meeting with Hugh. Next bit of research i will focus on is likely the major elements of a roguelike game, just so i can have everything i need infront of my when developing proofs of concpets, because in thoery all proofs can be derived from that bit of research in some form.
+
+---
+## 07/10/2022
+Made some tweeks to accomodate for a slight bug in the collision on my proof of concept, and i understand now why the bug existed too.
+
+## 10/10/2022
+ I have done some product research that i will upload very soon, as its almost finished. I currently am also working on a document that would outline the thoeretical algorithms and structures i would be able to apply to my project, allowing me to place my thoughts onto a single document that i can go back to whenever i need. I may have both of these documents converted into markdown, for a similar format to what i have in this diary here. These bits of research can later be translated to LaTeX, but i currently use VsCode to write this diary, which syncs to the gitlab repo for me, and if im writing my history into that repo, writing my research bit by bit is doing exactly that, rather than writing into google docs and transfering it over in pdf form when im finished.
+
+ 
