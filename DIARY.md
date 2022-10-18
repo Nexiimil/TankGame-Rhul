@@ -56,4 +56,6 @@ Made some tweeks to accomodate for a slight bug in the collision on my proof of 
 ## 10/10/2022
  I have done some product research that i will upload very soon, as its almost finished. I currently am also working on a document that would outline the thoeretical algorithms and structures i would be able to apply to my project, allowing me to place my thoughts onto a single document that i can go back to whenever i need. I may have both of these documents converted into markdown, for a similar format to what i have in this diary here. These bits of research can later be translated to LaTeX, but i currently use VsCode to write this diary, which syncs to the gitlab repo for me, and if im writing my history into that repo, writing my research bit by bit is doing exactly that, rather than writing into google docs and transfering it over in pdf form when im finished.
 
- 
+ ---
+ ## 18/10/2022
+ After 8 days of little to show for myself i have reminded myself i need to actually update this diary and the gitlab in order for progress to be made. doing things on my own machine doesnt mean much if the history cant be seen, so i am uploading the current state of notes into the notes section. I may have to reorganise them later if i add to them in the future.
