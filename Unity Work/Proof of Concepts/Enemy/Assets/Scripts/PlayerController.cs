@@ -18,6 +18,12 @@ public class PlayerController : MonoBehaviour{
   [SerializeField]
   private float rotationSpeed = 30;
 
+  [SerializeField]
+  private float health = 10;
+
+  void setHealth(float health){this.health = health;}
+  float getHealth(){return this.health;}
+
   void setRb(Rigidbody2D rb){this.rb = rb;}
   Rigidbody2D getRb(){return this.rb;}
 
@@ -46,6 +52,9 @@ public class PlayerController : MonoBehaviour{
   void Update(){
     setPosition(new float[] {Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")});
     setRotation(getRotation() + Input.GetAxisRaw("Rotation") * rotationSpeed);
+    if(getHealth() < 0){
+      Destroy(gameObject);
+    }
   }
   void FixedUpdate(){
     getRb().velocity = new Vector2(getPositionHorizontal()*getPlayerSpeed(), getPositionVertical()*getPlayerSpeed());

@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 456849165227562827}
   - component: {fileID: 5296366642634365664}
   - component: {fileID: 5833580911621846900}
+  - component: {fileID: 3270331797827845244}
   - component: {fileID: 4591767183266906849}
+  - component: {fileID: 7985246554329964359}
   m_Layer: 7
   m_Name: Projectile
   m_TagString: Projectile
@@ -28,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4321320687049702920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.33, y: 2.54, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,12 +103,24 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &3270331797827845244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321320687049702920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0a9da5c82963c438f574253ebc405c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &4591767183266906849
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -133,3 +147,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6328107, y: 0.2656207}
   m_EdgeRadius: 0
+--- !u!114 &7985246554329964359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321320687049702920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0a9da5c82963c438f574253ebc405c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
