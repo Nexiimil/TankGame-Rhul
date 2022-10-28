@@ -53,9 +53,26 @@ managed to complete a proof of conecpt, i have all basic motion and collision so
 ## 07/10/2022
 Made some tweeks to accomodate for a slight bug in the collision on my proof of concept, and i understand now why the bug existed too.
 
+---
 ## 10/10/2022
  I have done some product research that i will upload very soon, as its almost finished. I currently am also working on a document that would outline the thoeretical algorithms and structures i would be able to apply to my project, allowing me to place my thoughts onto a single document that i can go back to whenever i need. I may have both of these documents converted into markdown, for a similar format to what i have in this diary here. These bits of research can later be translated to LaTeX, but i currently use VsCode to write this diary, which syncs to the gitlab repo for me, and if im writing my history into that repo, writing my research bit by bit is doing exactly that, rather than writing into google docs and transfering it over in pdf form when im finished.
 
  ---
  ## 18/10/2022
  After 8 days of little to show for myself i have reminded myself i need to actually update this diary and the gitlab in order for progress to be made. doing things on my own machine doesnt mean much if the history cant be seen, so i am uploading the current state of notes into the notes section. I may have to reorganise them later if i add to them in the future.
+
+ ---
+ ## 19/10/022
+ I have finalised the roation method for enemeies to envoke, in order to track the player. It was very difficult, and requried me to learn about quaternions, which are really not very fun to learn about either, i will need to explain these in my vive, but roughly, its a method to rotate a 3D object using 4 dimensions, x,y,z, and an additional w imaginary number. It is not directly linked to Euler rotation with degrees, and i need to convert euler rotations to Quaternions to use them on my transforms.
+
+ ---
+ ## 21/10/2022
+ I have begun work on a damage system for the proijecftiles that the player and the enemies can shoot. Main issue right now is that the projeciles will also be able to collide, and i have realised that my code is less than ideal modularity wise, so i will need to a small refactor ro make sure i am not depending on single classes for many functions, this is not how Dave taught me, and i intend to correct for this.
+
+ ---
+ ## 25/10/2022
+ ### Meeting Notes
+ Hugh mentioned that i have no real evidence of formal testing, which is true. I need to outline how i am doing my testing, as i have actually been doing it, but it isnt very obvious at all. Essentially, sinc ei cannot isolate my scripts from the game environment, i will need to write tests that i can perform in the game, therefore acting as unity tests. I do also need to start writing my document in which i breakdown my required design patterns, a UML may go will with this.
+
+ ## 28/10/2022
+ I have finished the damage system, and finally gotten round to updating my diary, again, as i had forgotten. The refactor is next on the list to do, which i should be able to do very soon. I will need to work on a simple item system within the next 2 weeks. This is a very achievable task.
