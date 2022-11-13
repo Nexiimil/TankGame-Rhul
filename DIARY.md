@@ -73,6 +73,30 @@ Made some tweeks to accomodate for a slight bug in the collision on my proof of 
  ## 25/10/2022
  ### Meeting Notes
  Hugh mentioned that i have no real evidence of formal testing, which is true. I need to outline how i am doing my testing, as i have actually been doing it, but it isnt very obvious at all. Essentially, sinc ei cannot isolate my scripts from the game environment, i will need to write tests that i can perform in the game, therefore acting as unity tests. I do also need to start writing my document in which i breakdown my required design patterns, a UML may go will with this.
+ 
+---
 
  ## 28/10/2022
  I have finished the damage system, and finally gotten round to updating my diary, again, as i had forgotten. The refactor is next on the list to do, which i should be able to do very soon. I will need to work on a simple item system within the next 2 weeks. This is a very achievable task.
+
+---
+ ## 01/11/2022
+ I had to take a brief break due to personal matters, but I have started to construct the documents requested of me, beginning with the testing document, outlining what I need to perform in order to ensure elements of my code that i cannot test automatically work.
+
+---
+
+## 04/11/2022
+I am currently working on several courseworks, so work on this project has been slow, but i have written most of my testing document, and now am writing my design patterns document. The resources stipulated by the brief have been very useful.
+
+---
+
+ ## 08/11/2022
+ Due to other courseworks, my attention had been diverted to other important submissions, but i can now continue with the design patterns doument for my meeting later today with Hugh. I have created the shell of my interim report, placing the headers where i think they should be.
+
+ ### Meeting Notes
+ I should divide mny paragraphs into theory and application to stand the best chnace of deswcibing what i intend to descibe concisely. i have a habit of being execcsively verbose when i dont think i've put the meaning of what ive written across very well. The design patterns document could do with some diagrams and some areas of the test documuent need clarity. I also need to focus on referencing everything i can, re-digging up any websites or papers i have read.
+
+---
+
+ ## 12/11/2022
+ I have decided it is likely important to push back my item system into the second term/winter break in order to complete my interrim submissions. This time will be addressed in my evaluation of my planning. I need to start working on diagrams for my design patterns, but for now i am writing up all the theory i have learned for this project. I will likely be tight on time, but i will be able to manage.
