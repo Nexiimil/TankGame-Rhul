@@ -15,7 +15,7 @@ What i am doing right now:
 
 Final goals:
  - A game with some form of PCG, a character to navigate with, and enemies to defeat
- - A detailed report on all the complexities of the above task, especially noting all the ==Design Patterns==
+ - A detailed report on all the complexities of the above task, especially noting all the Design Patterns
 
  ---
 ## 29/09/2022
@@ -72,7 +72,8 @@ Made some tweeks to accomodate for a slight bug in the collision on my proof of 
  ---
  ## 25/10/2022
  ### Meeting Notes
- Hugh mentioned that i have no real evidence of formal testing, which is true. I need to outline how i am doing my testing, as i have actually been doing it, but it isnt very obvious at all. Essentially, sinc ei cannot isolate my scripts from the game environment, i will need to write tests that i can perform in the game, therefore acting as unity tests. I do also need to start writing my document in which i breakdown my required design patterns, a UML may go will with this.
+
+    Hugh mentioned that i have no real evidence of formal testing, which is true. I need to outline how i am doing my testing, as i have actually been doing it, but it isnt very obvious at all. Essentially, sinc ei cannot isolate my scripts from the game environment, i will need to write tests that i can perform in the game, therefore acting as unity tests. I do also need to start writing my document in which i breakdown my required design patterns, a UML may go will with this.
  
 ---
 
@@ -94,9 +95,30 @@ I am currently working on several courseworks, so work on this project has been 
  Due to other courseworks, my attention had been diverted to other important submissions, but i can now continue with the design patterns doument for my meeting later today with Hugh. I have created the shell of my interim report, placing the headers where i think they should be.
 
  ### Meeting Notes
- I should divide mny paragraphs into theory and application to stand the best chnace of deswcibing what i intend to descibe concisely. i have a habit of being execcsively verbose when i dont think i've put the meaning of what ive written across very well. The design patterns document could do with some diagrams and some areas of the test documuent need clarity. I also need to focus on referencing everything i can, re-digging up any websites or papers i have read.
+
+    I should divide mny paragraphs into theory and application to stand the best chnace of deswcibing what i intend to descibe concisely. i have a habit of being execcsively verbose when i dont think i've put the meaning of what ive written across very well. The design patterns document could do with some diagrams and some areas of the test documuent need clarity. I also need to focus on referencing everything i can, re-digging up any websites or papers i have read.
 
 ---
 
  ## 12/11/2022
  I have decided it is likely important to push back my item system into the second term/winter break in order to complete my interrim submissions. This time will be addressed in my evaluation of my planning. I need to start working on diagrams for my design patterns, but for now i am writing up all the theory i have learned for this project. I will likely be tight on time, but i will be able to manage.
+
+ ---
+
+ ## 22/11/2022
+I have been writing my interim report non-stop for over the last week, from the 14th-ish, and it has been read by Hugh, who i had a meeting with today to discuss it.
+
+Meeting notes:
+
+    - There are a few sections i do not need right now, i need to focus on aligning my time with the actual mark scheme.
+    - I need to reference everything i write, nowhere near enough references
+    - Software engineering section is good, but needs refrences and how im using each pattern clearly.
+    - Need to clearly mark what i've actually schieved
+    - I need to stop focussing on game design as opposed to software design.
+    - Reformat my product analysis notes into a table, more useful that way
+    - Need to paste in this diary.
+    - Need to re-explain quaternions, and why i use them
+    - label every image and table
+    - provide definitions from literature to all precise terms
+
+---
