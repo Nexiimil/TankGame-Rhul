@@ -16,7 +16,7 @@ public class PlayerMotion : MonoBehaviour{
     void Start(){
         rb = GetComponent<PlayerController>().getRb();
     }
-    void fixedUpdate(){
+    void FixedUpdate(){
         setPosition(new float[] {Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")});
         rb.velocity = new Vector2(getPositionHorizontal()*getPlayerSpeed(), getPositionVertical()*getPlayerSpeed());
     }

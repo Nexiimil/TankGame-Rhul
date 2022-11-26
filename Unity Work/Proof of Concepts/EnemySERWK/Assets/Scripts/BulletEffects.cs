@@ -14,10 +14,13 @@ public class BulletEffects : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D col){
-        HealthController healthScript = col.collider.GetComponentInParent<HealthController>();
-        if(healthScript != null){
+        HealthController healthScript = col.collider.GetComponentInParent<HealthController>();;
+        if(col.collider.tag != transform.parent.tag){
+            if(healthScript != null){
             healthScript.setHealth(healthScript.getHealth() - getCanon().getDamage());
         }
+        }
+        
         Destroy(gameObject);
     }
 }

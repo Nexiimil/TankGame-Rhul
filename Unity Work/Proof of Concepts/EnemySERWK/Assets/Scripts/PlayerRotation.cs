@@ -15,7 +15,7 @@ public class PlayerRotation : MonoBehaviour
     {
         rb = GetComponent<PlayerController>().getRb();
     }
-    void fixedUpdate()
+    void FixedUpdate()
     {
         setRotation(getRotation() + Input.GetAxisRaw("Rotation") * rotationSpeed);
         rb.rotation = getRotation();
