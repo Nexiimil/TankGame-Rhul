@@ -7,11 +7,14 @@ TagManager:
   - Enemy
   - Projectile
   - Healthbar
+  - PauseMenu
+  - StateController
+  - StartMenu
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PauseMenu
   - Water
   - UI
   - PlayerObject
