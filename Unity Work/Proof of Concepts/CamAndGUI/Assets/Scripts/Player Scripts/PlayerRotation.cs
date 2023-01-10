@@ -17,7 +17,7 @@ public class PlayerRotation : MonoBehaviour
     }
     void Update() //happens every frame
     {
-        setRotation(getRotation() + Input.GetAxisRaw("Rotation") * rotationSpeed); //sets the rotation of the player to the angle dictated by the player, using arrow keys
+        setRotation((getRotation() + Input.GetAxisRaw("Rotation") * rotationSpeed) % 360); //sets the rotation of the player to the angle dictated by the player, using arrow keys
         rb.rotation = getRotation(); //sets the players rotation, using the stored rotation value
     }
 }

@@ -15,6 +15,7 @@ public class CanonShoot : MonoBehaviour
     public float getDamage(){return this.damage;} //fecthes the damage value
     public void setCannon(Transform cannon){this.cannon = cannon;} //sets the cannon
     public Transform getCannon(){return this.cannon;}  //fetches the cannon
+    public GameObject getProjectile(){return projectile;} //fetches the projectile
     public void setProjectileSpeed(float projectileSpeed){this.projectileSpeed = projectileSpeed;} //sets the projectiles speed
     public float getProjectileSpeed(){return this.projectileSpeed;} //fetches the projectiles speed
     public void setFireSpeed(float fireSpeed){this.fireSpeed = fireSpeed;} //sets the fire rate

@@ -12,6 +12,7 @@ public class PauseCheck : MonoBehaviour
     public GameObject GetPauseMenu() {return this.pauseMenu;}   //fetches the pause menu object to invoke
 
     void Start(){ //call on object creation
+        Application.targetFrameRate = 60;
         SetPaused(true);    //sets the initial pause state to true, so the game doesnt run while the main menu is showing
         PauseGame();        //freezes game time to pause
         GetPauseMenu().SetActive(false);    //disables the pause menu, so it doesnt render while the main menu renders
