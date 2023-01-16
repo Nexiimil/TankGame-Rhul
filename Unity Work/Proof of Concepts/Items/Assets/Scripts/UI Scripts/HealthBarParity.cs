@@ -8,14 +8,14 @@ public class HealthBarParity : MonoBehaviour
 {
     [SerializeField] private GameObject[] fullHeart;//list of full hearts, state 0 for empty, state 1 for damaged, state 2 for full
     [SerializeField] private GameObject[] halfHeart;//list of half hearts, state 0 for empty, state 1 for full (use in case of odd health value)
-    [SerializeField] private GameObject player; //the player gameobject
+    [SerializeField] private EntityController player; //the player gameobject
     [SerializeField] private GameObject healthBar; //healthbar GUI gameobject
     [SerializeField] private int currentHealth; //current health of the player, possibly removeable
     [SerializeField] private int maxHealth; //maximum health of the player, possibly removeable
 
 	public GameObject getFullHeart(int x) {return this.fullHeart[x];} //fetches a heart state from the list of full heart states
 	public GameObject getHalfHeart(int x) {return this.halfHeart[x];} //fetches a heart state from the list of half heart states
-    public GameObject getPlayer() {return this.player;} //fetches the player, likely to pull its health
+    public EntityController getPlayer() {return this.player;} //fetches the player, likely to pull its health
     public GameObject getHealthBar() {return this.healthBar;} //fetches the healthbar GUI gameobject
 	public int getCurrentHealth() {return this.currentHealth;} //fetches the players current health, possibly removeable
     public void setCurrentHealth(float currentHealth) {this.currentHealth = (int)currentHealth;} //sets players current health, possibly removeable
@@ -29,7 +29,7 @@ public class HealthBarParity : MonoBehaviour
     void updateHealth(){ //called to update pulled health values
         HealthController healthScript = getPlayer().GetComponentInParent<HealthController>(); //pulls in the player health script
         setCurrentHealth(healthScript.getHealth()); //fetches the current health of the player
-        setMaxHealth(healthScript.getMaxHealth()); //fetches the maximum health of the player
+        setMaxHealth(getPlayer().getStatArray().getStat("MaxHealth")); //fetches the maximum health of the player
     }
 
     public void renderHealth(){

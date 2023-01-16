@@ -18,7 +18,7 @@ public class ManageOptions : MonoBehaviour
     {
         Navigate(2); //Must provide an intial index for the option arrays
     }
-    
+
     void Update() //Update is called once per frame
     {
         if(Input.GetKeyUp("down")){ //navigates down an index, to a lower option
@@ -28,6 +28,7 @@ public class ManageOptions : MonoBehaviour
             Navigate(1);     //modifies the index by 1
         }
     }
+
     void Navigate(int i){   //Determines which option is selected at any given index
         string active = " - ";  //the string denoting an active choice
         int limit = getOptions().Length;    //i can give this class to several objetcs, possibly with more options

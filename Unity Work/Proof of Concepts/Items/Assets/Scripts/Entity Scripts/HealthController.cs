@@ -6,17 +6,13 @@ using UnityEngine;
 public class HealthController : MonoBehaviour
 {
     [SerializeField] private float health; //the current health of the entity
-    [SerializeField] private float maxHealth; //the maximum health of the entity
-
+    [SerializeField] private EntityController entity;
     public float getHealth(){return this.health;} //fetches the current health
     public void setHealth(float health){this.health = health;} //sets the current health
-
-    public float getMaxHealth(){return this.maxHealth;} //fetches the maximum health
-    public void setMaxHealth(float maxHealth){this.maxHealth = maxHealth;} //sets the maximum health
-    
+    public EntityController getEntity() {return this.entity;}
     void Start()
     {
-        setHealth(5); //for the sake of testing, all units start with 5 health
+        setHealth(getEntity().getStatArray().getStat("MaxHealth")); //for the sake of testing, all units start with 5 health
     }
 
     void Update(){ //called every second, may be worth putting on the bullet, rather than checking every second

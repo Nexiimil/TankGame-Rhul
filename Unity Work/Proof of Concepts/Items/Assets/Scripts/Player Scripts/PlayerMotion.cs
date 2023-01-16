@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMotion : MonoBehaviour{
+    [SerializeField] private EntityController player;
     [SerializeField] private float playerSpeed;
-    [SerializeField] private PlayerController player;
+    EntityController getPlayer(){return this.player;}
     void setPlayerSpeed(float playerSpeed){this.playerSpeed = playerSpeed;}
     float getPlayerSpeed(){return this.playerSpeed;}
     void Start(){
+        PullStat();
     }
     void Update(){
-        player.getRB().velocity = new Vector2(new float[] {Input.GetAxisRaw("Horizontal")*getPlayerSpeed(), Input.GetAxisRaw("Vertical")*getPlayerSpeed()});
+        player.getRB().velocity = new Vector2(Input.GetAxisRaw("Horizontal")*getPlayerSpeed(), Input.GetAxisRaw("Vertical")*getPlayerSpeed());
+    }
+        void PullStat(){
+        setPlayerSpeed(getPlayer().getStatArray().getStat("EntitySpeed"));
     }
 }
