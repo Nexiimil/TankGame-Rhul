@@ -1,5 +1,6 @@
-{
-  "Eclipse":{
+[
+  {
+    "Name": "Eclipse",
     "Rarity": "Epic",
     "Stats": {
       "BulletType": 1,
@@ -34,7 +35,8 @@
       }
     }
   },
-  "Rusty Broadsword": {
+  {
+    "Name": "Rusty Broadsword",
     "Rarity": "Common",
     "Stats": {
       "BulletDamage": {
@@ -44,7 +46,8 @@
       "BulletCrit": 0.01
     }
   },
-  "Poison Needle":{
+  {
+    "Name": "Poison Needle",
     "Rarity": "Common",
     "Stats": {
       "BulletType": 1
@@ -59,4 +62,4 @@
       }
     }
   }
-}
+]

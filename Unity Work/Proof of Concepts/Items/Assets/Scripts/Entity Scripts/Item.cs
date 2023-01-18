@@ -1,19 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
+using UnityEngine;
 
+[System.Serializable]
 public class Item {
-    private string name;
-    private int rarity;
-    private Dictionary<string, float[]> stats;
-    private Dictionary<string, IEffect> effects;
+    [SerializeField] private string name;
+    [SerializeField] private string rarity;
+    private StatArray stats;
+    private EffectsArray effects;
 
-    public Item item(string name, int rarity, Dictionary<string, float[]> stats, Dictionary<string, IEffect> effects){
+    public Item(string name, string rarity, StatArray stats, EffectsArray effects){
         this.name = name;
         this.rarity = rarity;
         this.stats = stats;
         this.effects = effects;
-        return this;
     }
 
 

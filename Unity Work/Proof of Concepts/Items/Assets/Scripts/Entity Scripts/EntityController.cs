@@ -16,6 +16,6 @@ public class EntityController : MonoBehaviour{
 
 
   void Start(){
-    setStatArray(GetComponent<StatArray>());
+    setStatArray(new StatArray());
   }
 }
