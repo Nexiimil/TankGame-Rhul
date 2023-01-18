@@ -122,3 +122,19 @@ Meeting notes:
     - provide definitions from literature to all precise terms
 
 ---
+
+ ## 18/01/2023
+This will be a very large diary entry, as i have been putting off writing up what i have been up to over the winter holidays.
+To my knowledge, i am not graded on stuff i do over the winter, however, i did need the extra time to insert elemenets i had not thoroughly considered.
+
+Over winter i finished the proof of concept for GUIs, and will likely add in some nice quality of life ones later, like the victory/death screen, and perhaps some item pickup flair. I had started work on the item system as well.
+
+I have as of 2 hours ago finished writing the system and JSON template to import items into my game, in such a way that i can simply add whatever item i want, as long as its on the end of that JSON text file. This is a huge step in the further development of my game, and noiw i just need to have these items be interacted with physically by the player, such that they can be picked up, and the stats applied to the player. All stats have been unified into a single stat array, which works very well, decoupling a ton of code. In theory, new stats could even be added in, simply by adding them to the dictionary, and any class that were made in the future, could simply ask for that stat as a key from the dictionary and retrieve the stat.
+I feel incredibly motivated now, as i have spent several hours solving this item import issue, and much like many problems, was actually solved rather neatly, with very little code. Turns out JSON deserializers are not a huge fan of Dictionaries, so i wrapped aech dictionary into a class, and it worked. Unity doesnt let me peer into dictionaries from the inspector, so i'll write some code probing the stats of each item, likely a .toString override in the item class. After the item system is complete, the only major system left will be random generation, which has several steps:
+Map generation
+Map visualisation
+Room Templating
+Enemy Templating
+And integration hell.
+I look forward to working on generation very soon.
+My next steps are to create an item prefab, and find a way to generate a reward to strap to it, spawning it in the test room once all enemies have been killed.
