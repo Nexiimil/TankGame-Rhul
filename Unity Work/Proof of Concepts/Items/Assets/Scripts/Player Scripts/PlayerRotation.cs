@@ -18,6 +18,7 @@ public class PlayerRotation : MonoBehaviour
         player.getRB().rotation += (Input.GetAxisRaw("Rotation") * rotationSpeed) % 360; //sets the players rotation, using the stored rotation value
     }
     void PullStat(){
-        setRotationSpeed(getPlayer().getStatArray().getStat("EntityRoSpeed"));
+        Stats stat = getPlayer().getStatArray().Find(r => r.statName == "EntityRoSpeed");
+        setRotationSpeed(stat.flatStat * (1+stat.percentageStat));
     }
 }

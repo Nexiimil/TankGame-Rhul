@@ -4,11 +4,11 @@ using System.Dynamic;
 using UnityEngine;
 
 public class EntityController : MonoBehaviour{
-  [SerializeField] private StatArray sa;
+  [SerializeField] private List<Stats> sa;
   [SerializeField] private Rigidbody2D rb;
 
-  void setStatArray(StatArray sa){this.sa = sa;}
-  public StatArray getStatArray(){return this.sa;}
+  public void setStatArray(List<Stats> sa){this.sa = sa;}
+  public List<Stats> getStatArray(){return this.sa;}
 
   void setRB(Rigidbody2D rb){this.rb = rb;}
 
@@ -16,6 +16,18 @@ public class EntityController : MonoBehaviour{
 
 
   void Start(){
-    setStatArray(new StatArray());
+    setStatArray(new List<Stats>{
+                      new Stats("BulletType", 0, 0),
+                      new Stats("BulletDamage", 1, 0),
+                      new Stats("BulletSpeed", 0, 0),
+                      new Stats("BulletCrit", 0, 0),
+                      new Stats("EntityArmour", 0, 0),
+                      new Stats("EntitySpeed", 2, 0),
+                      new Stats("EntityFireSpeed", 30, 0),
+                      new Stats("EntityRoSpeed", 5, 0),
+                      new Stats("MaxHealth", 5, 0),
+                      new Stats("Cannons", 1,0)
+                    }
+                  );
   }
 }

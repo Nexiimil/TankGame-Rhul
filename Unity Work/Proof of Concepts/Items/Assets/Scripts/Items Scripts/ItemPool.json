@@ -2,64 +2,79 @@
   {
     "Name": "Eclipse",
     "Rarity": "Epic",
-    "Stats": {
-      "BulletType": 1,
-      "BulletDamage": {
-        "FlatMod": 30,
-        "PercentMod": 0.2
+    "Stats": [
+      {
+        "statName": "BulletType",
+        "flatStat": 1,
+        "percentageStat": 0
       },
-      "BulletSpeed": {
-        "FlatMod": 0,
-        "PercentMod": 0.05
+      {
+        "statName": "BulletDamage",
+        "flatStat": 30,
+        "percentageStat": 0
       },
-      "BulletCrit": 0.1,
-      "PlayerArmor": {
-        "FlatMod": 0,
-        "PercentMod": 0.05
+      {
+        "statName": "BulletSpeed",
+        "flatStat": 0,
+        "percentageStat": 0.05
+      },
+      {
+        "statName": "BulletCrit",
+        "flatStat": 0,
+        "percentageStat": 0.1
+      },
+      {
+        "statName": "PlayerArmor",
+        "flatStat": 0,
+        "percentageStat": 0.05
       }
-    },
-    "Effects": {
-      "Poison": {
+    ],
+    "Effects":[
+      {
+        "$type":"Poison, Assembly-CSharp",
         "TimeMod": 2,
         "TimePMod": 0.02,
         "DamageMod": 20,
         "DamagePMod": 0.15,
         "ChancePMod": 0.1
-      },
-      "Slow": {
-        "TimeMod": 2,
-        "TimePMod": 0.02,
-        "SlowMod": 0.03,
-        "SlowPMod": 0.03,
-        "ChancePMod": 0.03
       }
-    }
+    ]
   },
   {
     "Name": "Rusty Broadsword",
     "Rarity": "Common",
-    "Stats": {
-      "BulletDamage": {
-        "FlatMod": 1,
-        "PercentMod": 0
+    "Stats": [
+      {
+        "statName": "BulletDamage",
+        "flatStat": 1,
+        "percentageStat": 0
       },
-      "BulletCrit": 0.01
-    }
+      {
+        "statName": "BulletCrit",
+        "flatStat": 0,
+        "percentageStat": 0.01
+      }
+    ]
   },
   {
     "Name": "Poison Needle",
     "Rarity": "Common",
-    "Stats": {
-      "BulletType": 1
-    },
-    "Effects": {
-      "Poison": {
+    "Stats":[
+      {
+        "statName": "BulletType",
+        "flatStat": 1,
+        "percentageStat": 0
+      }
+    ],
+    "Effects":[
+      {
+      "$type":"Poison, Assembly-CSharp",
         "TimeMod": 2,
         "TimePMod": 0,
         "DamageMod": 1,
         "DamagePMod": 0,
         "ChancePMod": 0.05
       }
-    }
+    ]
   }
 ]

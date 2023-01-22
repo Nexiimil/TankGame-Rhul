@@ -12,7 +12,8 @@ public class HealthController : MonoBehaviour
     public EntityController getEntity() {return this.entity;}
     void Start()
     {
-        setHealth(getEntity().getStatArray().getStat("MaxHealth")); //for the sake of testing, all units start with 5 health
+        Stats stat = getEntity().getStatArray().Find(r => r.statName == "MaxHealth"); //for the sake of testing, all units start with 5 health
+        setHealth(stat.flatStat * (1+stat.percentageStat));
     }
 
     void Update(){ //called every second, may be worth putting on the bullet, rather than checking every second

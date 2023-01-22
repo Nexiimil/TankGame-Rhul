@@ -21,7 +21,8 @@ public class PlayerCannonHandler : MonoBehaviour
 
     void Recalculate() //recalculates the position of a number of cannons
     {
-        float cannons = getEntity().getStatArray().getStatFlat("Cannons");
+        Stats stat = getEntity().getStatArray().Find(r => r.statName == "Cannons");
+        float cannons = stat.flatStat;
         float x = 0; //stores the current angle that the new cannon should be made at, counts up each loop, possibly replaceable
         float angleOffset = (360/cannons); //calculates the angle between each cannon
         float radius = 0.75f; //the radius from the centre of the player that the cannon spawns

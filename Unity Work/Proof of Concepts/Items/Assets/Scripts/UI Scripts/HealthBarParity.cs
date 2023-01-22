@@ -29,7 +29,7 @@ public class HealthBarParity : MonoBehaviour
     void updateHealth(){ //called to update pulled health values
         HealthController healthScript = getPlayer().GetComponentInParent<HealthController>(); //pulls in the player health script
         setCurrentHealth(healthScript.getHealth()); //fetches the current health of the player
-        setMaxHealth(getPlayer().getStatArray().getStat("MaxHealth")); //fetches the maximum health of the player
+        setMaxHealth(getPlayer().getStatArray().Find(r => r.statName == "MaxHealth").flatStat); //fetches the maximum health of the player
     }
 
     public void renderHealth(){

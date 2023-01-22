@@ -10,4 +10,6 @@ public interface IEffect
     public void Aggregate(IEffect aggragate); 
     public void Negate();
     public void Afflict();
+
+    public string ToString();
 }
