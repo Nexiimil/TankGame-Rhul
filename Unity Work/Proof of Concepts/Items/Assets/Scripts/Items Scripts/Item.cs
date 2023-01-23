@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
@@ -34,7 +32,7 @@ public class Item {
         if(this._effects != null){
             foreach(IEffect effect in this._effects){
                 toReturn += effect.ToString();
-            }      
+            }
         }
         return toReturn;
     }

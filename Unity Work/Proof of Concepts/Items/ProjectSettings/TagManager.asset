@@ -12,6 +12,8 @@ TagManager:
   - StartMenu
   - HUD
   - Map
+  - ItemPool
+  - Enemies
   layers:
   - Default
   - TransparentFX

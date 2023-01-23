@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using Newtonsoft.Json;
+using System;
 
 public class ItemPoolGeneration : MonoBehaviour
 {
@@ -48,5 +49,10 @@ public class ItemPoolGeneration : MonoBehaviour
         Item itemTest = new Item("TestBlade", "Test", stats, effects);
         Debug.Log(itemTest.ToString());
         Debug.Log(JsonConvert.SerializeObject(itemTest, new JsonSerializerSettings {TypeNameHandling = TypeNameHandling.Auto }));
+    }
+    public Item generateRandomDrop(){
+        System.Random rand = new System.Random();
+        Item item = GetItem(rand.Next(0, GetItemPool().Count));
+        return item;
     }
 }

@@ -1,16 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Net;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 public class RoomController : MonoBehaviour
 {
     EnemyFactory ef;
+    ItemFactory itf;
     [SerializeField] GameObject rewardItemPrefab;
 
     [SerializeField] Item reward;
 
+    [SerializeField] bool clearFlag = false;
 
     // Start is called before the first frame update
     void Start(){  //when the room starts
@@ -19,13 +18,14 @@ public class RoomController : MonoBehaviour
     }
 
     void RoomCleared(){
-        Vector2 spawnPoint = new Vector2(Transform.position.x, Transform.position.y) + Random.insideUnitCircle * 2; //sets up the spawn point
-        GameObject rewardItem = Instantiate(rewardItemPrefab, spawnPoint, Quaternion.Identity, Transform);
+        clearFlag = true;
+        itf = GetComponentInChildren<ItemFactory>();
+        itf.Create(1);
     }
 
     void Update(){
         int enemies = GameObject.FindWithTag("Enemies").transform.childCount;
-        if(enemies == 0){
+        if(enemies == 0 & clearFlag == false){
             enemies--;
             RoomCleared();
         }
