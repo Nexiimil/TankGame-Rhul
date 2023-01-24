@@ -18,18 +18,19 @@ public class ItemPoolGeneration : MonoBehaviour
     void Start()
     {
         //serialiseAttempt();
-        SetJSONfileName("Assets/Scripts/Items Scripts/ItemPool.json");
-        using (StreamReader r = new StreamReader(GetJSONfileName()))
-        {
-            string json = r.ReadToEnd();
-            Debug.Log(json);
-            SetItemPool(JsonConvert.DeserializeObject<List<Item>>(json, new JsonSerializerSettings{
-                                                                            TypeNameHandling = TypeNameHandling.Auto
-                                                                        }));
-            for(int i = 0; i<GetItemPool().Count;i++){
-                Debug.Log(GetItem(i).ToString());
+        string[] dir =  Directory.GetDirectories(@"Assets\DataPacks\");
+        foreach(string d in dir) {
+            SetJSONfileName(d + "\\Items.json");
+            using (StreamReader r = new StreamReader(GetJSONfileName())){
+                string json = r.ReadToEnd();
+                Debug.Log(json);
+                GetItemPool().AddRange(JsonConvert.DeserializeObject<List<Item>>(json, new JsonSerializerSettings{
+                                                                TypeNameHandling = TypeNameHandling.Auto
+                                                                    }));
             }
-
+        }
+        for(int i = 0; i<GetItemPool().Count;i++){
+            Debug.Log(GetItem(i).ToString());
         }
 
         // using (StreamReader r = new StreamReader("Assets/Scripts/Items Scripts/testJson"))
@@ -39,6 +40,7 @@ public class ItemPoolGeneration : MonoBehaviour
         //     Debug.Log(sa);
         // }
     }
+
     void serialiseAttempt(){
         List<Stats> stats = new List<Stats>{
                                             new Stats("BulletType", 0, 0),
@@ -46,7 +48,7 @@ public class ItemPoolGeneration : MonoBehaviour
                                             new Stats("BulletSpeed", 20, 0),
                                         };
         List<IEffect> effects = new List<IEffect>{new Poison(1,0,1,0,0.2f)};
-        Item itemTest = new Item("TestBlade", "Test", stats, effects);
+        Item itemTest = new Item("TestBlade", "Test", "Tester", stats, effects);
         Debug.Log(itemTest.ToString());
         Debug.Log(JsonConvert.SerializeObject(itemTest, new JsonSerializerSettings {TypeNameHandling = TypeNameHandling.Auto }));
     }

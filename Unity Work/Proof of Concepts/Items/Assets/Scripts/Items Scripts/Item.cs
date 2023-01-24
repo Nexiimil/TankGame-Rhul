@@ -7,18 +7,21 @@ using UnityEngine;
 public class Item {
     [SerializeField] private string _name;
     [SerializeField] private string _rarity;
+    [SerializeField] private string _origin;
     [SerializeField] private List<Stats> _stats = null;
-    [SerializeField] private List<IEffect> _effects = null;
+    [SerializeReference] private List<IEffect> _effects = null;
 
-    public Item(string name, string rarity, List<Stats> stats, List<IEffect> effects){
+    public Item(string name, string rarity, string origin, List<Stats> stats, List<IEffect> effects){
         this._name = name;
         this._rarity = rarity;
+        this._origin = origin;
         this._stats = stats;
         this._effects = effects;
     }
 
     public string Name { get => _name; set => _name = value; }
     public string Rarity { get => _rarity; set => _rarity = value; }
+    public string Origin { get => _origin; set => _origin = value; }
     public List<Stats> Stats { get => _stats; set => _stats = value; }
     public List<IEffect> Effects { get => _effects; set => _effects = value; }
 

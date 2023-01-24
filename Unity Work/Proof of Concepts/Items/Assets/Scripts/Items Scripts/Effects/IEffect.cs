@@ -5,7 +5,7 @@ using UnityEngine;
 
 public interface IEffect
 {
-    IEffect rollAfflicationChance();
+    IEffect RollAfflicationChance();
 
     public void Aggregate(IEffect aggragate); 
     public void Negate();
