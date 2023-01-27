@@ -3976,6 +3976,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPool: []
   JSONFileName: 
+  references:
+    version: 2
+    RefIds: []
 --- !u!4 &1080581382
 Transform:
   m_ObjectHideFlags: 0
@@ -6161,6 +6164,7 @@ GameObject:
   - component: {fileID: 1929683653}
   - component: {fileID: 1929683655}
   - component: {fileID: 1929683652}
+  - component: {fileID: 1929683656}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -6343,6 +6347,22 @@ MonoBehaviour:
   entity: {fileID: 1929683647}
   cannonPreFab: {fileID: 4354147761112865243, guid: 834b9383845277b4db04892cb0b8e557, type: 3}
   parent: {fileID: 1929683650}
+--- !u!114 &1929683656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929683646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f036a935227aaba45a82e9507deebe11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inventory: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1931407698
 GameObject:
   m_ObjectHideFlags: 0
@@ -6622,8 +6642,13 @@ MonoBehaviour:
   reward:
     _name: 
     _rarity: 
+    _origin: 
     _stats: []
+    _effects: []
   clearFlag: 0
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &2087261380
 MonoBehaviour:
   m_ObjectHideFlags: 0

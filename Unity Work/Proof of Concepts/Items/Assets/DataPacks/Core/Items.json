@@ -11,7 +11,7 @@
       },
       {
         "statName": "BulletDamage",
-        "flatStat": 30,
+        "flatStat": 3,
         "percentageStat": 0
       },
       {

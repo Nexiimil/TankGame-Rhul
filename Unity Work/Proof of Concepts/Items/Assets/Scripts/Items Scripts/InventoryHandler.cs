@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class InventoryHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   [SerializeField] private List<Item> _inventory;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    void pickup(Item item){
+   public List<Item> Inventory { get => _inventory; set => _inventory = value;}
 
-    }
+   public Item getItem(int val){return this.Inventory[val];}
+
+   public void addItem(Item i){
+      Inventory.Add(i);
+   }
+
+   public void PickUp(Item i){
+      addItem(i);
+   }
 }
