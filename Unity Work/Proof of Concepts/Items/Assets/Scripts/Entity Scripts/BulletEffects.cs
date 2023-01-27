@@ -14,7 +14,7 @@ public class BulletEffects : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D col){ //triggers on bullet colliding with an entity with a collider component
-        HealthController healthScript = col.collider.GetComponentInParent<HealthController>(); //fetches the health script of the target
+        HealthController healthScript = col.collider.GetComponent<HealthController>(); //fetches the health script of the target
         if(col.collider.tag != transform.parent.tag){ //damage can only be dealt to entities of a different tag eg. player vs enemy
             if(healthScript != null){ //target can only be damaged if there is a health script attached to it
                 healthScript.setHealth(healthScript.getHealth() - getCanon().getDamage()); //inflicts the damage upon the target entities health
