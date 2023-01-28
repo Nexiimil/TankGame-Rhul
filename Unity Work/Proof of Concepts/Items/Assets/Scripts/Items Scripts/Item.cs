@@ -8,15 +8,19 @@ public class Item {
     [SerializeField] private string _name;
     [SerializeField] private string _rarity;
     [SerializeField] private string _origin;
-    [SerializeField] private List<Stats> _stats = null;
-    [SerializeReference] private List<IEffect> _effects = null;
+    [SerializeField] private List<Stats> _stats = new List<Stats>();
+    [SerializeReference] private List<IEffect> _effects = new List<IEffect>();
 
     public Item(string name, string rarity, string origin, List<Stats> stats, List<IEffect> effects){
         this._name = name;
         this._rarity = rarity;
         this._origin = origin;
-        this._stats = stats;
+        if(stats != null){
+            this._stats = stats;
+        }
+        if(effects != null){
         this._effects = effects;
+        }
     }
 
     public string Name { get => _name; set => _name = value; }

@@ -6601,6 +6601,7 @@ GameObject:
   - component: {fileID: 2087261378}
   - component: {fileID: 2087261379}
   - component: {fileID: 2087261380}
+  - component: {fileID: 2087261381}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -6638,6 +6639,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58df44d5d13f72040a51f98cac88f030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ef: {fileID: 0}
+  _itf: {fileID: 0}
   rewardItemPrefab: {fileID: 0}
   reward:
     _name: 
@@ -6663,3 +6666,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 4646615130999809832, guid: c7e96baaaf6aea34891c9bcd92fb5336, type: 3}
   parent: {fileID: 2087261378}
+--- !u!114 &2087261381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087261377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fbc3813178881e458e9550ad0dc820e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

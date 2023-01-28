@@ -140,6 +140,7 @@
     {
         "Name": "Aegis",
         "Rarity": "Rare",
+        "Origin": "AlecItems",
         "Stats": [
             {
                 "statName": "PlayerArmour",

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 public class EnemyFactory : MonoBehaviour
 {
-    public enum Enemy { Shooter=0, Chaser=1 }; //defines the enemies that can be generated, will be chnaged to an adaptable enemy pool soon
     [SerializeField] private GameObject[] enemies; //list of available enemy prefabs
     [SerializeField] private Transform parent; //the room that holds the enemies
     

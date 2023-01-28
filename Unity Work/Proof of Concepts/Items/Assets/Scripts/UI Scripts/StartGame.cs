@@ -30,7 +30,7 @@ public class StartGame : MonoBehaviour
             go.SetActive(true);
         }
         EntityController playerSetup = (EntityController)GameObject.FindWithTag("Player").GetComponent("EntityController");
-        playerSetup.setStatArray(new List<Stats>{
+        playerSetup.Sa = new List<Stats>{
                                         new Stats("BulletType", 0, 0),
                                         new Stats("BulletDamage", 1, 0),
                                         new Stats("BulletSpeed", 20, 0),
@@ -41,8 +41,7 @@ public class StartGame : MonoBehaviour
                                         new Stats("EntityRoSpeed", 2, 0),
                                         new Stats("MaxHealth", 5, 0),
                                         new Stats("Cannons", 2,0)
-                                    }
-                                );
+                                    };
 
     }
 }

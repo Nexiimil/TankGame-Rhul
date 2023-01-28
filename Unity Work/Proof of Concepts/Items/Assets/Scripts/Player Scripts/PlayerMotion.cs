@@ -15,7 +15,7 @@ public class PlayerMotion : MonoBehaviour{
         player.getRB().velocity = new Vector2(Input.GetAxisRaw("Horizontal")*getPlayerSpeed(), Input.GetAxisRaw("Vertical")*getPlayerSpeed());
     }
         void PullStat(){
-        Stats stat = getPlayer().getStatArray().Find(r => r.statName == "EntitySpeed");
+        Stats stat = getPlayer().Sa.Find(r => r.statName == "EntitySpeed");
         setPlayerSpeed(stat.flatStat * (1+stat.percentageStat));
     }
 }
