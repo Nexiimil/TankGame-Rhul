@@ -29,10 +29,6 @@ public class InventoryHandler : MonoBehaviour
       }
       if(i.Effects.Count > 0){
          foreach(IEffect e in i.Effects){
-            Debug.Log(e);
-            Debug.Log(i.Effects);
-            Debug.Log(statChanger);
-            Debug.Log(statChanger.Ef);
             int effectToChange = statChanger.Ef.FindIndex(r => r.GetType() == e.GetType());
             if(effectToChange == -1){
                statChanger.Ef.Add(e);
@@ -43,6 +39,7 @@ public class InventoryHandler : MonoBehaviour
             }
          }
       }
+      BroadcastMessage("PullStat");
    }
 
    public void PickUp(Item i){

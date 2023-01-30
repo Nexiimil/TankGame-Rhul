@@ -11,12 +11,12 @@ public class PauseCheck : MonoBehaviour
 	public void SetPaused(bool paused) {this.paused = paused;}  //sets the current pause state
     public GameObject GetPauseMenu() {return this.pauseMenu;}   //fetches the pause menu object to invoke
 
-    void Start(){ //call on object creation
-        Application.targetFrameRate = 60;
-        SetPaused(true);    //sets the initial pause state to true, so the game doesnt run while the main menu is showing
-        PauseGame();        //freezes game time to pause
-        GetPauseMenu().SetActive(false);    //disables the pause menu, so it doesnt render while the main menu renders
-    }
+    // void Start(){ //call on object creation
+    //     Application.targetFrameRate = 60;
+    //     SetPaused(true);    //sets the initial pause state to true, so the game doesnt run while the main menu is showing
+    //     PauseGame();        //freezes game time to pause
+    //     GetPauseMenu().SetActive(false);    //disables the pause menu, so it doesnt render while the main menu renders
+    // }
 
     void Update(){  //checks every frame
         if (Input.GetKeyUp(KeyCode.Escape)){    //checks whether the user wants to pause the game
@@ -38,7 +38,7 @@ public class PauseCheck : MonoBehaviour
         Time.timeScale = 0f;    //time being 0 means frozen
     }
 
-    void UnpauseGame(){ //unfreezes game time
+    public void UnpauseGame(){ //unfreezes game time
         Time.timeScale = 1f;    //time being 1 means unfrozen
     }
 }

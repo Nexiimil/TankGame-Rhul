@@ -3780,6 +3780,7 @@ GameObject:
   - component: {fileID: 806192642}
   - component: {fileID: 806192644}
   - component: {fileID: 806192643}
+  - component: {fileID: 806192645}
   m_Layer: 5
   m_Name: QuitGame
   m_TagString: Untagged
@@ -3849,6 +3850,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806192641}
   m_CullTransparentMesh: 1
+--- !u!114 &806192645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806192641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f35a08418bb19f14795d0c86d446d068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &823653489
 GameObject:
   m_ObjectHideFlags: 0
@@ -3939,12 +3952,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 823653489}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc777173a569cc14aba29ada8a31bacc, type: 3}
+  m_Script: {fileID: 11500000, guid: 951f205c697adc24596b5a11b3514aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   activate:
   - {fileID: 732337934}
   - {fileID: 1315838080}
+  - {fileID: 1358100758}
+  room: {fileID: 2087261377}
+  player: {fileID: 1929683646}
 --- !u!1 &1080581380
 GameObject:
   m_ObjectHideFlags: 0
@@ -4141,6 +4157,7 @@ GameObject:
   - component: {fileID: 1126009763}
   - component: {fileID: 1126009765}
   - component: {fileID: 1126009764}
+  - component: {fileID: 1126009766}
   m_Layer: 5
   m_Name: EndGame
   m_TagString: Untagged
@@ -4210,6 +4227,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1126009762}
   m_CullTransparentMesh: 1
+--- !u!114 &1126009766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126009762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 951f205c697adc24596b5a11b3514aab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activate:
+  - {fileID: 732337934}
+  - {fileID: 1315838080}
+  - {fileID: 1358100758}
+  - {fileID: 1627999906}
+  room: {fileID: 2087261377}
+  player: {fileID: 1929683646}
 --- !u!1 &1263985782
 GameObject:
   m_ObjectHideFlags: 0
@@ -5702,7 +5738,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2087261378}
-  - {fileID: 1929683650}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6185,7 +6220,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sa: []
+  ef: []
   rb: {fileID: 1929683648}
+  references:
+    version: 2
+    RefIds: []
 --- !u!50 &1929683648
 Rigidbody2D:
   serializedVersion: 4
@@ -6271,8 +6310,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1315838081}
-  m_RootOrder: 1
+  m_Father: {fileID: 2087261378}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1929683651
 CircleCollider2D:
@@ -6303,6 +6342,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  maximumHealth: 0
+  armor: 0
   entity: {fileID: 1929683647}
 --- !u!114 &1929683653
 MonoBehaviour:
@@ -6331,7 +6372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1929683647}
-  rotationSpeed: 5
+  rotationSpeed: 75
 --- !u!114 &1929683655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6420,6 +6461,7 @@ GameObject:
   - component: {fileID: 1983229009}
   - component: {fileID: 1983229011}
   - component: {fileID: 1983229010}
+  - component: {fileID: 1983229012}
   m_Layer: 5
   m_Name: QuitGame
   m_TagString: Untagged
@@ -6489,6 +6531,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1983229008}
   m_CullTransparentMesh: 1
+--- !u!114 &1983229012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983229008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f35a08418bb19f14795d0c86d446d068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1995084044
 GameObject:
   m_ObjectHideFlags: 0
@@ -6624,6 +6678,7 @@ Transform:
   - {fileID: 639771311}
   - {fileID: 1931407699}
   - {fileID: 151678972}
+  - {fileID: 1929683650}
   m_Father: {fileID: 1315838081}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

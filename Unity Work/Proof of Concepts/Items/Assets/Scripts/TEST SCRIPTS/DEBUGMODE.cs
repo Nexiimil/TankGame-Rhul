@@ -15,8 +15,13 @@ public class DEBUGMODE : MonoBehaviour{
         if (Input.GetKeyUp(KeyCode.O)){ //Check for key input
             Rc.Ef.Create(Enemy.Shooter, 1); //Spawn an enemy     
         }
-        if (Input.GetKeyUp(KeyCode.I)){ //Check for key input//Target the enemy factory
+        if (Input.GetKeyUp(KeyCode.I)){ //Check for key input
             Rc.Itf.Create(5); //Spawn an enemy     
+        }
+        if (Input.GetKeyUp(KeyCode.H)){ //Check for key input
+            GameObject go = GameObject.FindWithTag("Player");
+            HealthController hc = go.GetComponent<HealthController>(); //Spawn an enemy
+            hc.Health += 5;   
         }
     }
 }

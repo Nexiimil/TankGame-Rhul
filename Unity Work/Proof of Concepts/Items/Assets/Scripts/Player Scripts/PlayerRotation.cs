@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,11 +14,10 @@ public class PlayerRotation : MonoBehaviour
 
     void Update() //happens every frame
     {
-        PullStat();
-        player.getRB().rotation += (Input.GetAxisRaw("Rotation") * rotationSpeed) % 360; //sets the players rotation, using the stored rotation value
+        player.getRB().rotation += (Input.GetAxisRaw("Rotation") * rotationSpeed*  Time.deltaTime) % 360; //sets the players rotation, using the stored rotation value
     }
     void PullStat(){
         Stats stat = getPlayer().Sa.Find(r => r.statName == "EntityRoSpeed");
-        setRotationSpeed(stat.flatStat * (1+stat.percentageStat));
+        setRotationSpeed(Stats.capFlatPerc(75, stat.flatStat, stat.percentageStat, 600));
     }
 }

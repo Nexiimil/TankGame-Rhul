@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,8 +15,8 @@ public class PlayerMotion : MonoBehaviour{
     void Update(){
         player.getRB().velocity = new Vector2(Input.GetAxisRaw("Horizontal")*getPlayerSpeed(), Input.GetAxisRaw("Vertical")*getPlayerSpeed());
     }
-        void PullStat(){
+    void PullStat(){
         Stats stat = getPlayer().Sa.Find(r => r.statName == "EntitySpeed");
-        setPlayerSpeed(stat.flatStat * (1+stat.percentageStat));
+        setPlayerSpeed(Stats.capFlatPerc(1, stat.flatStat, stat.percentageStat, 4));
     }
 }

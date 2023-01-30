@@ -43,6 +43,7 @@ public class CanonShoot : MonoBehaviour
             be.Tag = transform.tag;
             be.Damage = Damage;
             projectile.GetComponent<Rigidbody2D>().AddForce(Cannon.right * ProjectileSpeed, ForceMode2D.Impulse);
+            Object.Destroy(projectile, 30.0f);
             yield return new WaitForSeconds(1/FireSpeed);
             CanFire = (true);
         }

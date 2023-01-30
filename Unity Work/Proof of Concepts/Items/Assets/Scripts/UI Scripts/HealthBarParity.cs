@@ -24,17 +24,17 @@ public class HealthBarParity : MonoBehaviour
 
     void Start() //called when the healthbar starts to exist
     {
-        renderHealth(); //initial call to set up players health bar
+        PullStat(); //initial call to set up players health bar
     }
     void updateHealth(){ //called to update pulled health values
         HealthController healthScript = getPlayer().GetComponentInParent<HealthController>(); //pulls in the player health script
-        setCurrentHealth(healthScript.getHealth()); //fetches the current health of the player
+        setCurrentHealth(healthScript.Health); //fetches the current health of the player
         setMaxHealth(getPlayer().Sa.Find(r => r.statName == "MaxHealth").flatStat); //fetches the maximum health of the player
     }
 
-    public void renderHealth(){
+    public void PullStat(){
         updateHealth(); //ensures health values are current
-        foreach (Transform child in getHealthBar().transform){ //purges the current health bar, by iterating through each heart visible
+        foreach (Transform child in gameObject.transform){ //purges the current health bar, by iterating through each heart visible
             GameObject.Destroy(child.gameObject); //deletes each heart object
         }
         //determine heart types required

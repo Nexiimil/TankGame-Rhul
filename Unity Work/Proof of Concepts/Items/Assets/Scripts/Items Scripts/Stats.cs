@@ -20,4 +20,14 @@ public class Stats{
     {
         return this.statName + ", " + this.flatStat + ", " + this.percentageStat + "\n";
     }
+    public static float capFlat(float lower, float value, float upper){
+        return Math.Min(Math.Max(value,lower),upper);
+    }
+    public static float capPerc(float lower, float value, float upper){
+        return (1 + Math.Min(Math.Max(value,lower),upper));
+    }
+    public static float capFlatPerc(float lower, float flat, float perc, float upper){
+        return  Stats.capFlat(lower, flat, upper) * Stats.capPerc(0,perc,1);
+    }
+
 }

@@ -18,6 +18,7 @@ public class StartGame : MonoBehaviour
     {
         if(Input.GetKeyUp("space") && GetComponentInParent<Text>().text.Substring(0,3) == " - "){
             initialiseGame();
+            BroadcastMessage("PullStat");
         }
     }
     void initialiseGame(){
@@ -29,19 +30,5 @@ public class StartGame : MonoBehaviour
         foreach(GameObject go in activate){
             go.SetActive(true);
         }
-        EntityController playerSetup = (EntityController)GameObject.FindWithTag("Player").GetComponent("EntityController");
-        playerSetup.Sa = new List<Stats>{
-                                        new Stats("BulletType", 0, 0),
-                                        new Stats("BulletDamage", 1, 0),
-                                        new Stats("BulletSpeed", 20, 0),
-                                        new Stats("BulletCrit", 0, 0),
-                                        new Stats("EntityArmour", 0, 0),
-                                        new Stats("EntitySpeed", 2, 0),
-                                        new Stats("EntityFireSpeed", 30, 0),
-                                        new Stats("EntityRoSpeed", 2, 0),
-                                        new Stats("MaxHealth", 5, 0),
-                                        new Stats("Cannons", 2,0)
-                                    };
-
     }
 }

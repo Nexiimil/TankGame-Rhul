@@ -18,9 +18,9 @@ public class ItemPoolGeneration : MonoBehaviour
     void Start()
     {
         //serialiseAttempt();
-        string[] dir =  Directory.GetDirectories(@"Assets\DataPacks\");
+        string[] dir =  Directory.GetDirectories(System.IO.Directory.GetCurrentDirectory() + " /DataPacks");
         foreach(string d in dir) {
-            SetJSONfileName(d + "\\Items.json");
+            SetJSONfileName(d + "/Items.json");
             using (StreamReader r = new StreamReader(GetJSONfileName())){
                 string json = r.ReadToEnd();
                 Debug.Log(json);

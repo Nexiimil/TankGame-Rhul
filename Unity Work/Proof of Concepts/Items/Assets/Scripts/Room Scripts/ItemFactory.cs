@@ -20,7 +20,7 @@ public class ItemFactory : MonoBehaviour
             GameObject itemDrop = Instantiate(item, spawnPoint, Quaternion.identity, parent); //spawn an item given the various distances
             ItemDrop id = (ItemDrop)itemDrop.GetComponent("ItemDrop");
             id.Me = gen;
-            string dir =  @"Assets\DataPacks\" + gen.Origin + "\\" + gen.Name + ".png";
+            string dir =  System.IO.Directory.GetCurrentDirectory() + "/DataPacks/" + gen.Origin + "/" + gen.Name + ".png";
             byte[] spriteData = File.ReadAllBytes(dir);
             Texture2D texture2D = new Texture2D(2,2);
             texture2D.LoadImage(spriteData);
