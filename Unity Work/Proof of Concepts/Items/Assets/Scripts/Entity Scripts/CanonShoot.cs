@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class CanonShoot : MonoBehaviour
@@ -21,11 +22,11 @@ public class CanonShoot : MonoBehaviour
     void PullStat(){
         EntityController entity = (EntityController)GetComponentInParent(typeof(EntityController));
         Stats stat = entity.Sa.Find(r => r.statName == "BulletDamage");
-        Damage = stat.flatStat * (1 + stat.percentageStat);
+        Damage = Stats.capFlatPerc(1, stat.flatStat, stat.percentageStat, 100);
         stat = entity.Sa.Find(r => r.statName == "BulletSpeed");
-        ProjectileSpeed = stat.flatStat * (1 + stat.percentageStat);
+        ProjectileSpeed = Stats.capFlatPerc(1, stat.flatStat, stat.percentageStat, 100);
         stat = entity.Sa.Find(r => r.statName == "EntityFireSpeed");
-        FireSpeed = stat.flatStat * (1 + stat.percentageStat);
+        FireSpeed = Stats.capFlatPerc(1, stat.flatStat, stat.percentageStat, 100);
     }
     void Update() //called every frame
     {

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Dynamic;
 using UnityEngine;
 
 public class EntityController : MonoBehaviour{
@@ -20,14 +19,14 @@ public class EntityController : MonoBehaviour{
     Sa = (new List<Stats>{
                       new Stats("BulletType", 0, 0),
                       new Stats("BulletDamage", 1, 0),
-                      new Stats("BulletSpeed", 15, 0),
+                      new Stats("BulletSpeed", 10, 0),
                       new Stats("BulletCrit", 0, 0),
                       new Stats("EntityArmor", 0, 0),
                       new Stats("EntitySpeed", 2, 0),
                       new Stats("EntityFireSpeed", 1, 0),
                       new Stats("EntityRoSpeed", 75, 0),
                       new Stats("MaxHealth", 5, 0),
-                      new Stats("Cannons", 1 ,0)
+                      new Stats("Cannons", 1, 0)
                     }
                   );
   }

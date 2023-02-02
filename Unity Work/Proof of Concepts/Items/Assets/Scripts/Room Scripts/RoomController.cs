@@ -17,7 +17,8 @@ public class RoomController : MonoBehaviour
     // Start is called before the first frame update
     public void RoomStart(){  //when the room starts
         Ef = GetComponentInChildren<EnemyFactory>(); //ensure the factory exists
-        Ef.Create(Enemy.Shooter, 4); //create 4 shooter enemies (for the sake of enemy testing)
+        Ef.Create(Enemy.Shooter, 3); //create 4 shooter enemies (for the sake of enemy testing)
+        Ef.Create(Enemy.Chaser, 2); //create 4 shooter enemies (for the sake of enemy testing)
     }
 
     void RoomCleared(){

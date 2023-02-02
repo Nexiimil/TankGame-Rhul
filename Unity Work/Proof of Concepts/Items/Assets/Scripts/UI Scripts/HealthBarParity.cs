@@ -13,56 +13,54 @@ public class HealthBarParity : MonoBehaviour
     [SerializeField] private int currentHealth; //current health of the player, possibly removeable
     [SerializeField] private int maxHealth; //maximum health of the player, possibly removeable
 
-	public GameObject getFullHeart(int x) {return this.fullHeart[x];} //fetches a heart state from the list of full heart states
-	public GameObject getHalfHeart(int x) {return this.halfHeart[x];} //fetches a heart state from the list of half heart states
-    public EntityController getPlayer() {return this.player;} //fetches the player, likely to pull its health
-    public GameObject getHealthBar() {return this.healthBar;} //fetches the healthbar GUI gameobject
-	public int getCurrentHealth() {return this.currentHealth;} //fetches the players current health, possibly removeable
-    public void setCurrentHealth(float currentHealth) {this.currentHealth = (int)currentHealth;} //sets players current health, possibly removeable
-    public int getMaxHealth() {return this.maxHealth;} //fetches the players stored maximum health, possibly removeable
-    public void setMaxHealth(float maxHealth) {this.maxHealth = (int)maxHealth;} //stores the players maximum health, possibly removeable
+    public GameObject[] FullHeart { get => fullHeart; set => fullHeart = value; }
+    public GameObject[] HalfHeart { get => halfHeart; set => halfHeart = value; }
+    public EntityController Player { get => player; set => player = value; }
+    public GameObject HealthBar { get => healthBar; set => healthBar = value; }
+    public int CurrentHealth { get => currentHealth; set => currentHealth = value; }
+    public int MaxHealth { get => maxHealth; set => maxHealth = value; }
 
     void Start() //called when the healthbar starts to exist
     {
         PullStat(); //initial call to set up players health bar
     }
     void updateHealth(){ //called to update pulled health values
-        HealthController healthScript = getPlayer().GetComponentInParent<HealthController>(); //pulls in the player health script
-        setCurrentHealth(healthScript.Health); //fetches the current health of the player
-        setMaxHealth(getPlayer().Sa.Find(r => r.statName == "MaxHealth").flatStat); //fetches the maximum health of the player
+        HealthController healthScript = Player.GetComponentInParent<HealthController>(); //pulls in the player health script
+        CurrentHealth = (int)(healthScript.Health); //fetches the current health of the player
+        MaxHealth = (int)(Player.Sa.Find(r => r.statName == "MaxHealth").flatStat); //fetches the maximum health of the player
     }
 
     public void PullStat(){
         updateHealth(); //ensures health values are current
-        foreach (Transform child in gameObject.transform){ //purges the current health bar, by iterating through each heart visible
+        foreach (Transform child in HealthBar.transform){ //purges the current health bar, by iterating through each heart visible
             GameObject.Destroy(child.gameObject); //deletes each heart object
         }
         //determine heart types required
-        int healthyHearts = getCurrentHealth() / 2; //the number of full hearts
+        int healthyHearts = CurrentHealth / 2; //the number of full hearts
         int damagedHeart = 0; //the number of damage hearts, which should only ever be 1
-        if((getCurrentHealth() != getMaxHealth()) && (getCurrentHealth() % 2 == 1)){ //checks if a damaged heart should exist, in specific cases
+        if((CurrentHealth != MaxHealth) && (CurrentHealth % 2 == 1)){ //checks if a damaged heart should exist, in specific cases
             damagedHeart = 1; //sets the damaged heart to exist if needed
         }
-        int emptyHearts = (getMaxHealth() / 2) - (healthyHearts + (int)damagedHeart); //empty hearts are needed to placehold healable health
+        int emptyHearts = (MaxHealth / 2) - (healthyHearts + (int)damagedHeart); //empty hearts are needed to placehold healable health
         int[] hearts = {emptyHearts, damagedHeart, healthyHearts}; //list to iterate through in the for loop later
 
         int pos = 0; //Initial position of the hearts in the health bar, incremented
-        int offset = (int)getFullHeart(0).GetComponent<RectTransform>().rect.width; //fetches the distance the hearts have to be from eachother
+        int offset = (int)FullHeart[0].GetComponent<RectTransform>().rect.width; //fetches the distance the hearts have to be from eachother
         for(int i = 2; i>=0;i--){ //for each type of heart
             for(int h = 0; h<hearts[i]; h++){ //and for n number of hearts within each type of heart
-                GameObject heart = Instantiate(getFullHeart(i), getHealthBar().transform.position, getHealthBar().transform.rotation, getHealthBar().transform);
+                GameObject heart = Instantiate(FullHeart[i], HealthBar.transform.position, HealthBar.transform.rotation, HealthBar.transform);
                 heart.transform.localPosition += new Vector3(pos,0,0); //very long line above just creates a given heart, and this line positions it right
                 pos+=offset; //increments the heart position
             }
         }
 
-        if(getMaxHealth() % 2 == 1){ //checks if a half heart is needed (for odd number of health)
+        if(MaxHealth % 2 == 1){ //checks if a half heart is needed (for odd number of health)
             GameObject heart; //specifies the heart variable to this scope
-            if(getCurrentHealth() == getMaxHealth()){ //if health is full
-                heart = Instantiate(getHalfHeart(1), getHealthBar().transform.position, getHealthBar().transform.rotation, getHealthBar().transform);
+            if(CurrentHealth == MaxHealth){ //if health is full
+                heart = Instantiate(HalfHeart[1], HealthBar.transform.position, HealthBar.transform.rotation, HealthBar.transform);
                         //create a filled half heart
             }else{ //if health isnt full
-                heart = Instantiate(getHalfHeart(0), getHealthBar().transform.position, getHealthBar().transform.rotation, getHealthBar().transform);
+                heart = Instantiate(HalfHeart[0], HealthBar.transform.position, HealthBar.transform.rotation, HealthBar.transform);
             }       //create an empty half heart
             heart.transform.localPosition += new Vector3(pos,0,0); //heart position is the end of the health bar
         }

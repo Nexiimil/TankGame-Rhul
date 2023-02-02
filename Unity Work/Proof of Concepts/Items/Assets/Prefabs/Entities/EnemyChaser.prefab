@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7620257864845436593}
   - component: {fileID: 7620257864845436597}
   - component: {fileID: -2365020610947027673}
+  - component: {fileID: 3538948656785245757}
   m_Layer: 7
   m_Name: EnemyChaser
   m_TagString: Enemy
@@ -51,6 +52,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  maximumHealth: 0
+  armor: 0
   entity: {fileID: -2365020610947027673}
 --- !u!114 &7620257864845436596
 MonoBehaviour:
@@ -189,4 +192,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0789b92cbb25504c812dff16d3e124d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sa: []
+  ef: []
   rb: {fileID: 7620257864845436593}
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &3538948656785245757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7620257864845436558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0a9da5c82963c438f574253ebc405c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tag: Enemy
+  _damage: 0

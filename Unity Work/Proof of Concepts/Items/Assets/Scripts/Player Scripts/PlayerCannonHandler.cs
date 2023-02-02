@@ -21,12 +21,13 @@ public class PlayerCannonHandler : MonoBehaviour
 
     void PullStat() //recalculates the position of a number of cannons
     {
-        foreach (Transform child in gameObject.transform){ //purges the current health bar, by iterating through each heart visible
-            GameObject.Destroy(child.gameObject); //deletes each heart object
+        foreach (Transform child in gameObject.transform){ //purges the current health bar, by iterating through each Cannon visible
+            GameObject.Destroy(child.gameObject); //deletes each Cannon object
         }
         Stats stat = getEntity().Sa.Find(r => r.statName == "Cannons");
         float cannons = Math.Max(Math.Min(stat.flatStat,10),1);
-        float x = 0; //stores the current angle that the new cannon should be made at, counts up each loop, possibly replaceable
+        Debug.Log(cannons);
+        float x = gameObject.transform.rotation.z; //stores the current angle that the new cannon should be made at, counts up each loop, possibly replaceable
         float angleOffset = (360/cannons); //calculates the angle between each cannon
         float radius = 0.75f; //the radius from the centre of the player that the cannon spawns
         float rightAngleCorrection = 90f; //corrects for the initial positioning the player is in

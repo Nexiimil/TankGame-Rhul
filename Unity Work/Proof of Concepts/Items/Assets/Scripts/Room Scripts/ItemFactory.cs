@@ -24,6 +24,7 @@ public class ItemFactory : MonoBehaviour
             byte[] spriteData = File.ReadAllBytes(dir);
             Texture2D texture2D = new Texture2D(2,2);
             texture2D.LoadImage(spriteData);
+            texture2D.filterMode = FilterMode.Point;
             Sprite spr = Sprite.Create(texture2D, new Rect(0,0,16,16),new Vector2(0.5f,0.5f), 16f);
             SpriteRenderer sr = (SpriteRenderer)itemDrop.GetComponent("SpriteRenderer");
             sr.sprite = spr;
