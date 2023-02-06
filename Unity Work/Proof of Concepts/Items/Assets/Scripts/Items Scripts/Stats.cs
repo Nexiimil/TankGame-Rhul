@@ -1,7 +1,9 @@
+using System.IO;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 [System.Serializable]
 public class Stats{
     [SerializeField] private string _statName;
@@ -30,4 +32,12 @@ public class Stats{
         return  Stats.capFlat(lower, flat, upper) * Stats.capPerc(0,perc,1);
     }
 
+    public static Sprite GetImage(Stats s){
+        string dir =  System.IO.Directory.GetCurrentDirectory() + "/Stats/" + s.statName + ".png";
+        byte[] spriteData = File.ReadAllBytes(dir);
+        Texture2D texture2D = new Texture2D(2,2);
+        texture2D.LoadImage(spriteData);
+        texture2D.filterMode = FilterMode.Point;
+        return(Sprite.Create(texture2D, new Rect(0,0,16,16),new Vector2(0.5f,0.5f), 16f));
+    }
 }

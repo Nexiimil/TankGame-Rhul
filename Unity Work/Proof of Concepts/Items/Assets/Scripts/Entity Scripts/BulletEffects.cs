@@ -5,11 +5,15 @@ using UnityEngine;
 
 public class BulletEffects : MonoBehaviour
 {
-    [SerializeField] private string _tag; //the cannon the bullet was shot from
-    [SerializeField] private float _damage; //the cannon the bullet was shot from
+    [SerializeField] private string _tag;
+    [SerializeField] private float _damage; 
+    [SerializeField] private List<Affliction> _transfer = new List<Affliction>();
 
     public string Tag { get => _tag; set => _tag = value; }
     public float Damage { get => _damage; set => _damage = value; }
+    public List<Affliction> Transfer { get => _transfer; set => _transfer = value; }
+
+
     void PullStat(){
         Stats sa = GetComponent<EntityController>().Sa.Find(r => r.statName == "BulletDamage");
         Damage = Stats.capFlatPerc(1, sa.flatStat, sa.percentageStat, 100);
@@ -18,7 +22,16 @@ public class BulletEffects : MonoBehaviour
         HealthController healthScript = col.collider.GetComponent<HealthController>(); //fetches the health script of the target
         if(col.collider.tag != Tag){ //damage can only be dealt to entities of a different tag eg. player vs enemy
             if(healthScript != null){ //target can only be damaged if there is a health script attached to it
-                healthScript.Health = healthScript.Health - Math.Max(Damage-healthScript.Armor, 1); //inflicts the damage upon the target entities health
+                healthScript.TakeDamage(Math.Max(Damage-healthScript.Armor, 1)); //inflicts the damage upon the target entities health
+                foreach(Affliction a in Transfer){
+                    EntityController ec = col.collider.GetComponent<EntityController>();
+                    int afToChange = ec.Af.FindIndex(r => r.Ief.GetType() == a.GetType());
+                    if(afToChange == -1){
+                        ec.Af.Add(a);
+                    } else {
+                        ec.Af[afToChange] = a;
+                    }
+                }
                 if(col.collider.tag == "Player"){
                     HealthBarParity refresh = col.collider.GetComponent<HealthBarParity>(); //fetches the health bar
                     refresh.PullStat(); //triggers the health bar to update

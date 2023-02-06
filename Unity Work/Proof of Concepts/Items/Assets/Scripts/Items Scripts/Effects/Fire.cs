@@ -11,12 +11,14 @@ public class Fire : IEffect
     [SerializeField] private float _damageMod;
     [SerializeField] private float _damagePMod;
     [SerializeField] private float _chancePMod;
+    [SerializeField] private string[] statsModified = {"EntitySpeed", "EntityRoSpeed", "EntityFireSpeed"};
 
     public float TimeMod { get => _timeMod; set => _timeMod = value; }
     public float TimePMod { get => _timePMod; set => _timePMod = value; }
     public float DamageMod { get => _damageMod; set => _damageMod = value; }
     public float DamagePMod { get => _damagePMod; set => _damagePMod = value; }
     public float ChancePMod { get => _chancePMod; set => _chancePMod = value; }
+    public string[] StatsModified { get => statsModified; set => statsModified = value; }
 
     public Fire(float timeMod,float timePMod,float damageMod,float damagePMod,float chancePMod){
         this._timeMod = timeMod;
@@ -26,7 +28,7 @@ public class Fire : IEffect
         this._chancePMod = chancePMod;
     }
 
-    public IEffect RollAfflicationChance(){
+    public IEffect RollAfflictionChance(){
         return this;
     }
 
@@ -45,8 +47,12 @@ public class Fire : IEffect
         this._damagePMod *= -1;
         this._chancePMod *= -1;
     }
-    public void Afflict(){
-
+    public void Afflict(GameObject go, GameObject aff){
+        HealthController hc = go.GetComponent<HealthController>();
+        hc.TakeDamage(Stats.capFlatPerc(1, DamageMod, DamagePMod, 100));
+    }
+    public int ExpireCalc(){
+        return (int) Stats.capFlatPerc(1, TimeMod, TimePMod, 10);
     }
 
     public override string ToString()

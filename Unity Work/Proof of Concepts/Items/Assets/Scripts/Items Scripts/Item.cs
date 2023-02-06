@@ -1,6 +1,8 @@
 using System;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 [System.Serializable]
@@ -42,6 +44,14 @@ public class Item {
             }
         }
         return toReturn;
+    }
+    public static Sprite GetImage(Item i){
+        string dir =  System.IO.Directory.GetCurrentDirectory() + "/DataPacks/" + i.Origin + "/" + i.Name + ".png";
+        byte[] spriteData = File.ReadAllBytes(dir);
+        Texture2D texture2D = new Texture2D(2,2);
+        texture2D.LoadImage(spriteData);
+        texture2D.filterMode = FilterMode.Point;
+        return(Sprite.Create(texture2D, new Rect(0,0,16,16),new Vector2(0.5f,0.5f), 16f));
     }
     //,
     //   "Slow": {

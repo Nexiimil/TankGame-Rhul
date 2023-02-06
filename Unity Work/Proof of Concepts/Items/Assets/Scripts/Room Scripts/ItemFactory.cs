@@ -1,10 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Globalization;
 using System.IO;
-using System.Runtime.CompilerServices;
-using System.Security.Permissions;
 using UnityEngine;
 public class ItemFactory : MonoBehaviour
 {
@@ -20,14 +16,8 @@ public class ItemFactory : MonoBehaviour
             GameObject itemDrop = Instantiate(item, spawnPoint, Quaternion.identity, parent); //spawn an item given the various distances
             ItemDrop id = (ItemDrop)itemDrop.GetComponent("ItemDrop");
             id.Me = gen;
-            string dir =  System.IO.Directory.GetCurrentDirectory() + "/DataPacks/" + gen.Origin + "/" + gen.Name + ".png";
-            byte[] spriteData = File.ReadAllBytes(dir);
-            Texture2D texture2D = new Texture2D(2,2);
-            texture2D.LoadImage(spriteData);
-            texture2D.filterMode = FilterMode.Point;
-            Sprite spr = Sprite.Create(texture2D, new Rect(0,0,16,16),new Vector2(0.5f,0.5f), 16f);
             SpriteRenderer sr = (SpriteRenderer)itemDrop.GetComponent("SpriteRenderer");
-            sr.sprite = spr;
+            sr.sprite = Item.GetImage(gen);
         }
     }
 }

@@ -9,19 +9,17 @@ public class Ice : IEffect
     [SerializeField] private float _timeMod;
     [SerializeField] private float _timePMod;
     [SerializeField] private float _chancePMod;
+    [SerializeField] private string[] statsModified = {"EntitySpeed", "EntityRoSpeed"};
 
     public float TimeMod { get => _timeMod; set => _timeMod = value; }
     public float TimePMod { get => _timePMod; set => _timePMod = value; }
     public float ChancePMod { get => _chancePMod; set => _chancePMod = value; }
+    public string[] StatsModified { get => statsModified; set => statsModified = value; }
 
     public Ice(float timeMod,float timePMod,float chancePMod){
         this._timeMod = timeMod;
         this._timePMod = timePMod;
         this._chancePMod = chancePMod;
-    }
-
-    public IEffect RollAfflicationChance(){
-        return this;
     }
     
     public void Aggregate(IEffect aggregate){
@@ -37,8 +35,16 @@ public class Ice : IEffect
         this._chancePMod *= -1;
     }
 
-    public void Afflict(){
-        
+    public void Afflict(GameObject go, GameObject aff){
+        EntityController ec = go.GetComponent<EntityController>();
+        foreach(String s in StatsModified){
+            int index = ec.Sa.FindIndex(r => r.statName == s);
+            ec.Sa[index].flatStat = 0;
+        }
+    }
+
+    public int ExpireCalc(){
+        return (int) Stats.capFlatPerc(1, TimeMod, TimePMod, 10);
     }
 
     public override string ToString()

@@ -11,12 +11,14 @@ public class Slow : IEffect
     [SerializeField] private float _slowMod;
     [SerializeField] private float _slowPMod;
     [SerializeField] private float _chancePMod;
+    [SerializeField] private string[] statsModified = {"EntitySpeed", "EntityRoSpeed", "EntityFireSpeed"};
 
     public float TimeMod { get => _timeMod; set => _timeMod = value; }
     public float TimePMod { get => _timePMod; set => _timePMod = value; }
     public float SlowMod { get => _slowMod; set => _slowMod = value; }
     public float SlowPMod { get => _slowPMod; set => _slowPMod = value; }
     public float ChancePMod { get => _chancePMod; set => _chancePMod = value; }
+    public string[] StatsModified { get => statsModified; set => statsModified = value; }
 
     public Slow(float timeMod,float timePMod,float slowMod,float slowPMod,float chancePMod){
         this._timeMod = timeMod;
@@ -24,10 +26,6 @@ public class Slow : IEffect
         this._slowMod = slowMod;
         this._slowPMod = slowPMod;
         this._chancePMod = chancePMod;
-    }
-
-    public IEffect RollAfflicationChance(){
-        return this;
     }
 
     public void Aggregate(IEffect aggregate){
@@ -45,8 +43,16 @@ public class Slow : IEffect
         this._slowPMod *= -1;
         this._chancePMod *= -1;
     }
-    public void Afflict(){
-        
+    public void Afflict(GameObject go, GameObject aff){
+        EntityController ec = go.GetComponent<EntityController>();
+        foreach(String s in StatsModified){
+            int index = ec.Sa.FindIndex(r => r.statName == s);
+            ec.Sa[index].flatStat = Stats.capFlat(0.5f, ec.Sa[index].flatStat-SlowMod, 100);
+            ec.Sa[index].percentageStat = Stats.capPerc(0, ec.Sa[index].percentageStat-SlowPMod, 1);
+        }
+    }
+    public int ExpireCalc(){
+        return (int) Stats.capFlatPerc(1, TimeMod, TimePMod, 10);
     }
 
     public override string ToString()

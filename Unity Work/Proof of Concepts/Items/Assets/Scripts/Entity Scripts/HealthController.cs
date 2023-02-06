@@ -16,6 +16,15 @@ public class HealthController : MonoBehaviour
 
     public EntityController getEntity() {return this.entity;}
 
+    public void TakeDamage(float d){
+        Health = Health - d;
+        StartCoroutine(DamageTick());
+        SendMessage("PullStat");
+        if (Health <= 0){  //checks to see if a unit has died
+            Destroy(gameObject); //destroys the object, since it no longer has health
+        }
+    }
+
     void Start(){
         Stats stat = getEntity().Sa.Find(r => r.statName == "MaxHealth"); //pulls the maximum health
         Health = (stat.flatStat * (1+stat.percentageStat));
@@ -28,10 +37,12 @@ public class HealthController : MonoBehaviour
         MaximumHealth = stat.flatStat * (1+stat.percentageStat);
         
     }
-
-    void Update(){ //called every second, may be worth putting on the bullet, rather than checking every second
-        if (Health <= 0){  //checks to see if a unit has died
-            Destroy(gameObject); //destroys the object, since it no longer has health
-        }
+    IEnumerator DamageTick(){
+        Color c = gameObject.GetComponent<Renderer>().material.color;
+        c.a = 0;
+        gameObject.GetComponent<Renderer>().material.color = c;
+        yield return new WaitForSeconds(1/4);
+        c.a = 1;
+        gameObject.GetComponent<Renderer>().material.color = c;
     }
 }
