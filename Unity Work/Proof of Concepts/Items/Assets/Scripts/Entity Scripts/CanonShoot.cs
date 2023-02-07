@@ -39,7 +39,10 @@ public class CanonShoot : MonoBehaviour
             GameObject projectile = Instantiate(Projectile, cannon.position, cannon.rotation);
             BulletEffects be = projectile.GetComponent<BulletEffects>();
             foreach(IEffect ief in GetComponentInParent<EntityController>().Ef){
-                be.Transfer.Add(new Affliction(gameObject.transform.parent.gameObject, ief.ExpireCalc(), ief.RollAfflictionChance()));
+                IEffect eff = ief.RollAfflictionChance();
+                if(eff != null){
+                    be.Transfer.Add(new Affliction(gameObject.transform.parent.gameObject, ief.ExpireCalc(), eff));
+                }
             }
             be.Tag = transform.tag;
             be.Damage = Damage;

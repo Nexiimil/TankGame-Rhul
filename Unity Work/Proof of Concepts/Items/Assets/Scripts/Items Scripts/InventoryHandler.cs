@@ -75,7 +75,7 @@ public class InventoryHandler : MonoBehaviour
          GameObject statView = Instantiate(UiStatPrefab, statContainer.position, statContainer.rotation, statContainer);
          statView.transform.Find("Image").GetComponent<Image>().sprite = Stats.GetImage(s);
          statView.transform.Find("StatFlat").GetComponent<Text>().text = s.flatStat.ToString();
-         statView.transform.Find("StatPerc").GetComponent<Text>().text = (s.percentageStat *100).ToString() + "%";
+         statView.transform.Find("StatPerc").GetComponent<Text>().text = ((int)(s.percentageStat*100)).ToString() + "%";
       }
    }
 

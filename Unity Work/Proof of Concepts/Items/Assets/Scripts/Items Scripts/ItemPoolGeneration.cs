@@ -25,8 +25,8 @@ public class ItemPoolGeneration : MonoBehaviour
                 string json = r.ReadToEnd();
                 Debug.Log(json);
                 GetItemPool().AddRange(JsonConvert.DeserializeObject<List<Item>>(json, new JsonSerializerSettings{
-                                                                TypeNameHandling = TypeNameHandling.Auto
-                                                                    }));
+                                                                            TypeNameHandling = TypeNameHandling.Auto
+                                                                                }));
             }
         }
         for(int i = 0; i<GetItemPool().Count;i++){
