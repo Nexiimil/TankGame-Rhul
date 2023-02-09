@@ -138,3 +138,14 @@ Enemy Templating
 And integration hell.
 I look forward to working on generation very soon.
 My next steps are to create an item prefab, and find a way to generate a reward to strap to it, spawning it in the test room once all enemies have been killed.
+
+ ## 09/02/2023
+I have finally finished the item system for my game, at least fundamentally. Stats, effects and items images are all important from external files, and Items can be loaded from Json. Loading whole C# scripts as may have wanted to do with effects seems to be slightly out of scope compared to what i can achieve at the moment. Stats can indeed be added at will through items, but without effects to use them, the amount a modder could do with custom stats is basically none.
+
+Adding QoL elements will come after each system is finished. The above steps stand true in my previous entry, as my next step is to do map generation. This will largely be coded in a much rawer C# script, only interacting with Unity for the minimap and room navigation.
+I will later also work on trimming down how much 'Unity' is packaged with the game, while im very happy with a 48mb game size, i think some of the Dlls it packages are still largely unneccesary(?).
+I have given myself some slack days before starting this next system to get a mental refresh before i have to think in a more graph-oriented manner, but i should be able to outline my approach today.
+
+Currently my plan is to implement some floorgenerator which takes a number of rooms to generate, and attempts to generate rooms from a given root room breadth-first. Dead-ends will be placed on a stack, and then the furthest dead-end, which will be generated last, will become the boss room.
+
+Visually, i'll need to draw out the map, which should be simple enough, given that my sprites are of a known size.
