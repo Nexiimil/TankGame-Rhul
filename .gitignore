@@ -26,6 +26,11 @@ Unity Work/Proof of Concepts/MapGen/UserSettings
 Unity Work/Proof of Concepts/MapGen/DataPacks
 Unity Work/Proof of Concepts/MapGen/Effects
 Unity Work/Proof of Concepts/MapGen/Stats
+Unity Work/Proof of Concepts/MapGen/.vscode
+Unity Work/Proof of Concepts/MapGen/obj/Debug/.NETFramework,Version=v4.7.1.AssemblyAttributes.cs
+Unity Work/Proof of Concepts/MapGen/obj/Debug/Assembly-CSharp.csproj.AssemblyReference.cache
+Unity Work/Proof of Concepts/MapGen/Assembly-CSharp.csproj
+Unity Work/Proof of Concepts/MapGen/MapGen.sln
 Unity Work/Prototypes/Prototype/Library
 Unity Work/Prototypes/Prototype/Temp
 Unity Work/Prototypes/Prototype/Logs

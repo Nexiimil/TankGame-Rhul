@@ -6,24 +6,28 @@ using UnityEngine;
 public static class FloorGen{
     private static List<EnemyTemplate> et;
     private static List<RoomTemplate> rt;
-    private static List<Room> floor = new List<Room>();
     private static Queue<Room> leftToGen = new Queue<Room>();
     private static Stack<Room> deadEnds;
     private static ItemPoolGeneration ipg = GameObject.FindWithTag("ItemPool").GetComponent<ItemPoolGeneration>();
-    public static List<Room> Generate(int rooms){
-        leftToGen.Enqueue(new Room(null, null, ipg.generateRandomDrop(), 55));
+    public static Room Generate(int rooms, bool bidirectional){
+        Room root = new Room(null, null, ipg.generateRandomDrop(), 55);
+        List<Room> floor = new List<Room>();
+        floor.Add(root);
+        leftToGen.Enqueue(root);
         while(rooms > 0 && leftToGen.Count > 0){
             Debug.Log("Rooms: " + rooms + "Left to Gen: " + leftToGen.Count);
+            Console.WriteLine("Rooms: " + rooms + "Left to Gen: " + leftToGen.Count);
             Room currentRoom = leftToGen.Dequeue();
             foreach(Neighbours n in (Neighbours[])Enum.GetValues(typeof(Neighbours))){
                 int testkey = currentRoom.Roomkey + (int)n;
                 if (floor.FindIndex(r => r.Roomkey == testkey) == -1 && !GiveUp()){
                     Room gen = new Room(null, null, ipg.generateRandomDrop(), testkey);
                     currentRoom.Neighbours.Add(gen);
-                    gen.Neighbours.Add(currentRoom);
+                    gen.Parent = currentRoom;
                     leftToGen.Enqueue(gen);
                     floor.Add(gen);
                     Debug.Log("Room created with key: " + testkey + "connected to: " + currentRoom.Roomkey);
+                    Console.WriteLine("Room created with key: " + testkey + "connected to: " + currentRoom.Roomkey);
                     rooms--;
                     if(rooms == 0){
                         break;
@@ -31,7 +35,7 @@ public static class FloorGen{
                 }
             }
         }
-        return floor;
+        return floor[0];
     }
 
     public static EnemyTemplate randomEnemyTemp(){
