@@ -17,7 +17,7 @@ public class HealthController : MonoBehaviour
     public EntityController getEntity() {return this.entity;}
 
     public void TakeDamage(float d){
-        Health = Health - d;
+        Health -= d;
         StartCoroutine(DamageTick());
         SendMessage("PullStat");
         if (Health <= 0){  //checks to see if a unit has died

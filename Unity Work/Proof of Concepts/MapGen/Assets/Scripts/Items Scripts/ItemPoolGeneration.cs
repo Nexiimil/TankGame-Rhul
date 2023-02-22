@@ -7,12 +7,11 @@ using System;
 
 public class ItemPoolGeneration : MonoBehaviour
 {
-    [SerializeField] private List<Item> itemPool = new List<Item>();
+    [SerializeField] private static List<Item> itemPool = new List<Item>();
     [SerializeField] private string JSONFileName;
 
-    void SetItemPool(List<Item> itemPool){this.itemPool = itemPool;}
-    List<Item> GetItemPool(){return this.itemPool;}
-    Item GetItem(int x){return this.itemPool[x];}
+    static List<Item> GetItemPool(){return itemPool;}
+    static Item GetItem(int x){return itemPool[x];}
     void SetJSONfileName(string JSONFileName){this.JSONFileName = JSONFileName;}
     string GetJSONfileName(){return this.JSONFileName;}
     void Start()
@@ -52,8 +51,8 @@ public class ItemPoolGeneration : MonoBehaviour
         Debug.Log(itemTest.ToString());
         Debug.Log(JsonConvert.SerializeObject(itemTest, new JsonSerializerSettings {TypeNameHandling = TypeNameHandling.Auto }));
     }
-    public Item generateRandomDrop(){
-        System.Random rand = new System.Random();
+    public static Item GenerateRandomDrop(){
+        System.Random rand = new();
         Item item = GetItem(rand.Next(0, GetItemPool().Count));
         return item;
     }

@@ -13,10 +13,10 @@ public class DEBUGMODE : MonoBehaviour{
     // Update is called once per frame
     void Update(){
         if (Input.GetKeyUp(KeyCode.O)){ //Check for key input
-            Rc.Ef.Create(Enemy.Shooter, 1); //Spawn an enemy     
+            Rc.Ef.Create(Enemy.Shooter, 1, Neighbours.West); //Spawn an enemy     
         }
         if (Input.GetKeyUp(KeyCode.I)){ //Check for key input
-            Rc.Itf.Create(5); //Spawn an enemy     
+            Rc.Itf.Create(ItemPoolGeneration.GenerateRandomDrop()); //Spawn an enemy     
         }
         if (Input.GetKeyUp(KeyCode.H)){ //Check for key input
             GameObject go = GameObject.FindWithTag("Player");

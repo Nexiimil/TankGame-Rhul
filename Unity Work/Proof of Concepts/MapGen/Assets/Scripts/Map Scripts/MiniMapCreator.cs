@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class MiniMapCreator : MonoBehaviour
@@ -62,5 +63,27 @@ public class MiniMapCreator : MonoBehaviour
         }
         path.transform.localPosition += new Vector3(x,y,0);
         path.transform.rotation = Quaternion.Euler(0,0,rotation);
+    }
+    public void Shift(Neighbours n){
+        Transform newpos = minimap.transform;
+        float x = 0;
+        float y = 0;
+        float size = 90;
+        switch (n)
+        {
+            case Neighbours.North:
+                y-=size;
+                break;
+            case Neighbours.East:
+                x-=size;
+                break;
+            case Neighbours.South:
+                y+=size;
+                break;
+            case Neighbours.West:
+                x+=size;
+                break;
+        }
+        newpos.localPosition += new Vector3(x,y,0);
     }
 }

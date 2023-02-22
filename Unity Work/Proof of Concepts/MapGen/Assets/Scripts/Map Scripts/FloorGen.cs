@@ -8,9 +8,8 @@ public static class FloorGen{
     private static List<RoomTemplate> rt;
     private static Queue<Room> leftToGen = new Queue<Room>();
     private static Stack<Room> deadEnds;
-    private static ItemPoolGeneration ipg = GameObject.FindWithTag("ItemPool").GetComponent<ItemPoolGeneration>();
-    public static Room Generate(int rooms, bool bidirectional){
-        Room root = new Room(null, null, ipg.generateRandomDrop(), 55);
+    public static Room Generate(int rooms){
+        Room root = new Room(null, null, ItemPoolGeneration.GenerateRandomDrop(), 55);
         List<Room> floor = new List<Room>();
         floor.Add(root);
         leftToGen.Enqueue(root);
@@ -21,7 +20,7 @@ public static class FloorGen{
             foreach(Neighbours n in (Neighbours[])Enum.GetValues(typeof(Neighbours))){
                 int testkey = currentRoom.Roomkey + (int)n;
                 if (floor.FindIndex(r => r.Roomkey == testkey) == -1 && !GiveUp()){
-                    Room gen = new Room(null, null, ipg.generateRandomDrop(), testkey);
+                    Room gen = new Room(null, null, ItemPoolGeneration.GenerateRandomDrop(), testkey);
                     currentRoom.Neighbours.Add(gen);
                     gen.Parent = currentRoom;
                     leftToGen.Enqueue(gen);

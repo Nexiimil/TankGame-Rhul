@@ -30,4 +30,14 @@ public class Room{
     public List<Room> AvailableNeighbours(){
         return new List<Room>(Neighbours.Where(r => r == null));
     }
+    public string NeighboursToString(){
+        string toReturn = "";
+        foreach(Room r in Neighbours){
+            toReturn += r.ToString();
+        }
+        return toReturn;
+    }
+    public override string ToString(){
+        return "Room: " + Roomkey.ToString() + ", Reward: " + ItemReward.ToString();
+    }
 }

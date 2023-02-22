@@ -37,8 +37,6 @@ public class ToggleGameStart : MonoBehaviour
 
             }
         }
-        RoomController rc = room.GetComponent<RoomController>();
-        rc.RoomStart();
         room.BroadcastMessage("PullStat");
     }
 }
