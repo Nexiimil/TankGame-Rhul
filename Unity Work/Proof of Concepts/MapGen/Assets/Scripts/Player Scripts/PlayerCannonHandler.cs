@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 
@@ -33,10 +31,10 @@ public class PlayerCannonHandler : MonoBehaviour
     void Recalculate() //recalculates the position of a number of cannons
     {
         foreach (Transform child in gameObject.transform){ //purges the current health bar, by iterating through each Cannon visible
-            GameObject.Destroy(child.gameObject); //deletes each Cannon object
+            Destroy(child.gameObject); //deletes each Cannon object
         }
         float x = 0; //stores the current angle that the new cannon should be made at, counts up each loop, possibly replaceable
-        float angleOffset = (360/Cannons); //calculates the angle between each cannon
+        float angleOffset = 360/Cannons; //calculates the angle between each cannon
         float radius = 0.75f; //the radius from the centre of the player that the cannon spawns
         float rightAngleCorrection = 90f; //corrects for the initial positioning the player is in
         for(int n=0; n<Cannons; n++){ //repeat for n cannons

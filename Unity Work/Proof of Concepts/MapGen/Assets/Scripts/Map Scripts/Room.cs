@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -10,8 +8,9 @@ public class Room{
     [SerializeField] private EnemyTemplate _et;
     [SerializeField] private Item _itemReward;
     [SerializeField] private Room parent;
-    [SerializeField] private List<Room> _neighbours = new List<Room>();
+    [SerializeField] private List<Room> _neighbours = new();
     [SerializeField] private int _roomkey;
+    [SerializeField] private RoomState _state = RoomState.IncompleteStandard;
 
     public Room(RoomTemplate rt, EnemyTemplate et, Item itemReward, int roomkey){
         Rt = rt;
@@ -26,6 +25,7 @@ public class Room{
     public int Roomkey { get => _roomkey; set => _roomkey = value; }
     public List<Room> Neighbours { get => _neighbours; set => _neighbours = value; }
     public Room Parent { get => parent; set => parent = value; }
+    public RoomState State { get => _state; set => _state = value; }
 
     public List<Room> AvailableNeighbours(){
         return new List<Room>(Neighbours.Where(r => r == null));

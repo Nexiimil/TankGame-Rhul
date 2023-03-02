@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class EnterDoor : MonoBehaviour{
@@ -20,6 +19,8 @@ public class EnterDoor : MonoBehaviour{
     void OnCollisionEnter2D(Collision2D col){ 
         if(col.collider.tag == "Player" && gameObject.transform.Find("Open").gameObject.activeSelf){
             Rc.ChangeRoom(DoorDirection());
+        } else if(col.collider.tag == "Player" && gameObject.transform.Find("Stairs").gameObject.activeSelf){
+            Rc.ChangeRoom(Neighbours.Null);
         }
     }
 }
