@@ -149,3 +149,20 @@ I have given myself some slack days before starting this next system to get a me
 Currently my plan is to implement some floorgenerator which takes a number of rooms to generate, and attempts to generate rooms from a given root room breadth-first. Dead-ends will be placed on a stack, and then the furthest dead-end, which will be generated last, will become the boss room.
 
 Visually, i'll need to draw out the map, which should be simple enough, given that my sprites are of a known size.
+
+ ## 15/02/2023
+The minimap now renders appropriately, as if finished most of my first and second major algorithm for generation: creating rooms, and displaying them graphically
+Now i just need to make these rooms work for the player to traverse between them
+
+ ## 22/02/2023
+the map generation proof is essentially completed in its most fundamental form, the rooms are traversable, the player can go room to room and kill enenmies in order to get an item. Rooms also have a memory of sorts, allowing players to come back for items they've not yet picked up, and players can descend to new floors.
+Polish and some additional minor features can now be added.
+
+ ## 02/03/2023
+Terrain templates can now be loaded into rooms, allowing for a unique way of playing each room from each door. did some reorganising of enemies and how they are loaded in as well. 
+
+ ## 11/03/2023
+Playtesting revealed:
+ - a need for the death screen
+ - a small health bug
+ - and a lack of visible controls
