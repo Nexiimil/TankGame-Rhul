@@ -35,7 +35,7 @@ public class Vamp : IEffect
     }
 
     public void Afflict(GameObject go, GameObject aff){
-        aff.GetComponent<HealthController>().TakeDamage(-(Stats.capFlatPerc(1,HealMod, HealPMod, 100)));
+        aff.GetComponent<HealthController>().TakeDamage(-Stats.capFlatPerc(1,HealMod, HealPMod, 100));
     }
 
     public int ExpireCalc(){

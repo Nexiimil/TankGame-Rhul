@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class HealthBarParity : MonoBehaviour
 {
@@ -22,18 +18,19 @@ public class HealthBarParity : MonoBehaviour
 
     void Start() //called when the healthbar starts to exist
     {
+        HealthBar = GameObject.Find("HealthBar");
         PullStat(); //initial call to set up players health bar
     }
     void updateHealth(){ //called to update pulled health values
         HealthController healthScript = Player.GetComponentInParent<HealthController>(); //pulls in the player health script
-        CurrentHealth = (int)(healthScript.Health); //fetches the current health of the player
-        MaxHealth = (int)(Player.Sa.Find(r => r.statName == "MaxHealth").flatStat); //fetches the maximum health of the player
+        CurrentHealth = (int)healthScript.Health; //fetches the current health of the player
+        MaxHealth = (int)healthScript.MaximumHealth; //fetches the maximum health of the player
     }
 
     public void PullStat(){
         updateHealth(); //ensures health values are current
         foreach (Transform child in HealthBar.transform){ //purges the current health bar, by iterating through each heart visible
-            GameObject.Destroy(child.gameObject); //deletes each heart object
+            Destroy(child.gameObject); //deletes each heart object
         }
         //determine heart types required
         int healthyHearts = CurrentHealth / 2; //the number of full hearts

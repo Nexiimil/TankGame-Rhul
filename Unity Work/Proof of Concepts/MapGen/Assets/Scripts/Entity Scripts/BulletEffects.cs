@@ -19,6 +19,10 @@ public class BulletEffects : MonoBehaviour
         Damage = Stats.capFlatPerc(1, sa.flatStat, sa.percentageStat, 100);
     }
     void OnCollisionEnter2D(Collision2D col){ //triggers on bullet colliding with an entity with a collider component
+        StartCoroutine(DealDamage(col));
+    }
+
+    IEnumerator DealDamage(Collision2D col){
         HealthController healthScript = col.collider.GetComponent<HealthController>(); //fetches the health script of the target
         if(col.collider.tag != Tag){ //damage can only be dealt to entities of a different tag eg. player vs enemy
             if(healthScript != null){ //target can only be damaged if there is a health script attached to it
@@ -38,8 +42,14 @@ public class BulletEffects : MonoBehaviour
                 }
             }
         }
+
         if(gameObject.GetComponent<HealthController>() == null){
             Destroy(gameObject); //destroys the bullet on collision, preventing further collisions
+        } else {
+            Stats stat = gameObject.GetComponent<EntityController>().Sa.Find(r => r.statName == "EntityFireSpeed");
+            float FireSpeed = Stats.capFlatPerc(1, stat.flatStat, stat.percentageStat, 100);
+            yield return new WaitForSeconds(1/FireSpeed);
         }
+        yield return null;
     }
 }

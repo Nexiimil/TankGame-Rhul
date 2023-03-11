@@ -78,17 +78,17 @@ NavMeshAgent:
   m_GameObject: {fileID: 7620257864845436558}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.49
   m_Speed: 3
   m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 360
-  m_StoppingDistance: 1.05
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 0.00001
-  m_BaseOffset: 0.5
+  m_BaseOffset: 0.49
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!212 &7620257864845436594
@@ -177,9 +177,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.017057747}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.44882676
+  m_Radius: 0.5
 --- !u!114 &-2365020610947027673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,9 +192,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0789b92cbb25504c812dff16d3e124d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sa: []
-  ef: []
+  _sa: []
+  _ef: []
+  _af: []
   rb: {fileID: 7620257864845436593}
+  tick: 1
   references:
     version: 2
     RefIds: []
@@ -212,3 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tag: Enemy
   _damage: 0
+  _transfer: []
+  references:
+    version: 2
+    RefIds: []

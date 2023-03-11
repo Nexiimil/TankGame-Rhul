@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class FloorGen{
+    private static GameObject[] terrains; //item prefab
+    private static int _enemies;
     private static Queue<Room> leftToGen = new();
+
     public static Room Generate(int rooms){
-        Room root = new(RoomTemplate.Box, EnemyTemplate.Empty, ItemPoolGeneration.GenerateRandomDrop(), 55);
-        List<Room> floor = new(){root};
+        Room root = new(0, 0, ItemPoolGeneration.GenerateRandomDrop(), 55);
+        List<Room> floor = new();
         while(floor.Count < rooms){
             floor.Clear();
             floor = new(){root};
@@ -38,13 +41,13 @@ public static class FloorGen{
         return floor[0];
     }
 
-    public static EnemyTemplate RandomEnemyTemp(){
+    public static int RandomEnemyTemp(){
         System.Random rand = new();
-        return (EnemyTemplate) rand.Next(1, Enum.GetNames(typeof(EnemyTemplate)).Length);
+        return rand.Next(1, GameObject.Find("/Map").GetComponent<RoomPools>().Enemies.Count);
     }
-    public static RoomTemplate RandomRoomTemp(){
+    public static int RandomRoomTemp(){
         System.Random rand = new();
-        return (RoomTemplate) rand.Next(0, Enum.GetNames(typeof(RoomTemplate)).Length);
+        return rand.Next(0, GameObject.Find("/Map").GetComponent<RoomPools>().Terrains.Length);
     }
     public static bool GiveUp(){
         System.Random rand = new(){};

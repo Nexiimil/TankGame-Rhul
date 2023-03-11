@@ -26,7 +26,7 @@ public class Stats{
         return Math.Min(Math.Max(value,lower),upper);
     }
     public static float capPerc(float lower, float value, float upper){
-        return (1 + Math.Min(Math.Max(value,lower),upper));
+        return 1 + Math.Min(Math.Max(value,lower),upper);
     }
     public static float capFlatPerc(float lower, float flat, float perc, float upper){
         return  Stats.capFlat(lower, flat, upper) * Stats.capPerc(0,perc,1);
@@ -38,6 +38,6 @@ public class Stats{
         Texture2D texture2D = new Texture2D(2,2);
         texture2D.LoadImage(spriteData);
         texture2D.filterMode = FilterMode.Point;
-        return(Sprite.Create(texture2D, new Rect(0,0,16,16),new Vector2(0.5f,0.5f), 16f));
+        return Sprite.Create(texture2D, new Rect(0,0,16,16),new Vector2(0.5f,0.5f), 16f);
     }
 }

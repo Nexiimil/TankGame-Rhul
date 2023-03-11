@@ -94,14 +94,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1769780131655914557}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fcf1f3c22dd24240a0e642b92a8832f, type: 3}
+  m_Script: {fileID: 11500000, guid: e754505995bc52845888097d6a950cb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannon: {fileID: 1769780131655914554}
   projectile: {fileID: 4321320687049702920, guid: c99b76a6e2258a6469a0842994ed8fdb, type: 3}
-  damage: 1
-  projectileSpeed: 15
-  fireSpeed: 0.5
+  damage: 0
+  projectileSpeed: 0
+  fireSpeed: 0
   canFire: 1
 --- !u!1 &1769780131805845584
 GameObject:
@@ -266,7 +265,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0789b92cbb25504c812dff16d3e124d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sa: []
+  _ef: []
+  _af: []
   rb: {fileID: 1769780131805845596}
+  tick: 1
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &1769780131805845593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,6 +286,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  maximumHealth: 0
+  armor: 0
   entity: {fileID: 7810498624242655170}
 --- !u!114 &1769780131805845585
 MonoBehaviour:

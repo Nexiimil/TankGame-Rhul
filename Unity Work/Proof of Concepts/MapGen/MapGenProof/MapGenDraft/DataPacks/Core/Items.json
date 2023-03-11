@@ -1,0 +1,83 @@
+[
+  {
+    "Name": "Eclipse",
+    "Rarity": "Epic",
+    "Origin": "Core",
+    "Stats": [
+      {
+        "statName": "BulletType",
+        "flatStat": 1,
+        "percentageStat": 0
+      },
+      {
+        "statName": "BulletDamage",
+        "flatStat": 3,
+        "percentageStat": 0
+      },
+      {
+        "statName": "BulletSpeed",
+        "flatStat": 0,
+        "percentageStat": 0.05
+      },
+      {
+        "statName": "BulletCrit",
+        "flatStat": 0,
+        "percentageStat": 0.1
+      },
+      {
+        "statName": "EntityArmor",
+        "flatStat": 0,
+        "percentageStat": 0.05
+      }
+    ],
+    "Effects":[
+      {
+        "$type":"Poison, Assembly-CSharp",
+        "TimeMod": 2,
+        "TimePMod": 0.02,
+        "DamageMod": 20,
+        "DamagePMod": 0.15,
+        "ChancePMod": 0.1
+      }
+    ]
+  },
+  {
+    "Name": "Rusty Broadsword",
+    "Rarity": "Common",
+    "Origin": "Core",
+    "Stats": [
+      {
+        "statName": "BulletDamage",
+        "flatStat": 1,
+        "percentageStat": 0
+      },
+      {
+        "statName": "BulletCrit",
+        "flatStat": 0,
+        "percentageStat": 0.01
+      }
+    ]
+  },
+  {
+    "Name": "Poison Needle",
+    "Rarity": "Common",
+    "Origin": "Core",
+    "Stats":[
+      {
+        "statName": "BulletType",
+        "flatStat": 1,
+        "percentageStat": 0
+      }
+    ],
+    "Effects":[
+      {
+      "$type":"Poison, Assembly-CSharp",
+        "TimeMod": 2,
+        "TimePMod": 0,
+        "DamageMod": 1,
+        "DamagePMod": 0,
+        "ChancePMod": 0.05
+      }
+    ]
+  }
+]

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DEBUGMODE : MonoBehaviour{
@@ -12,16 +10,13 @@ public class DEBUGMODE : MonoBehaviour{
 
     // Update is called once per frame
     void Update(){
-        if (Input.GetKeyUp(KeyCode.O)){ //Check for key input
-            Rc.Ef.Create(Enemy.Shooter, 1, Neighbours.West); //Spawn an enemy     
-        }
         if (Input.GetKeyUp(KeyCode.I)){ //Check for key input
-            Rc.Itf.Create(ItemPoolGeneration.GenerateRandomDrop()); //Spawn an enemy     
+            Rc.Itf.Create(ItemPoolGeneration.GenerateRandomDrop()); //Spawn an item     
         }
         if (Input.GetKeyUp(KeyCode.H)){ //Check for key input
             GameObject go = GameObject.FindWithTag("Player");
-            HealthController hc = go.GetComponent<HealthController>(); //Spawn an enemy
-            hc.Health += 5;   
+            HealthController hc = go.GetComponent<HealthController>(); //Heal the player
+            hc.TakeDamage(-1);
         }
     }
 }

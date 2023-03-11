@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,9 +12,13 @@ public class InventoryHandler : MonoBehaviour
    public List<Item> Inventory { get => _inventory; set => _inventory = value;}
    public GameObject Ui { get => _ui; set => _ui = value; }
    public GameObject UiItemPrefab { get => _uiItemPrefab; set => _uiItemPrefab = value; }
-    public GameObject UiStatPrefab { get => _uiStatPrefab; set => _uiStatPrefab = value; }
+   public GameObject UiStatPrefab { get => _uiStatPrefab; set => _uiStatPrefab = value; }
+   public Item getItem(int val){return Inventory[val];}
 
-    public Item getItem(int val){return this.Inventory[val];}
+   void Start(){
+      Ui = GameObject.Find("UIStateController").transform.GetChild(0).gameObject;
+      Inventory.Clear();
+   }
 
    public void addItem(Item i){
       Inventory.Add(i);
@@ -54,7 +56,7 @@ public class InventoryHandler : MonoBehaviour
    public void AddToItemView(){
       Transform itemContainer = Ui.transform.Find("Items/ItemViewport/ItemContainer");
       foreach (Transform child in itemContainer){
-         GameObject.Destroy(child.gameObject);
+         Destroy(child.gameObject);
       }
       Inventory.Sort((x, y) => x.Name.CompareTo(y.Name));
       int count = 0;
@@ -69,7 +71,7 @@ public class InventoryHandler : MonoBehaviour
    public void UpdateStats(){
       Transform statContainer = Ui.transform.Find("Stats/StatViewport/StatContainer");
       foreach (Transform child in statContainer){
-         GameObject.Destroy(child.gameObject);
+         Destroy(child.gameObject);
       }
       foreach(Stats s in gameObject.GetComponent<EntityController>().Sa){
          GameObject statView = Instantiate(UiStatPrefab, statContainer.position, statContainer.rotation, statContainer);
@@ -82,7 +84,7 @@ public class InventoryHandler : MonoBehaviour
    public void UpdateEffects(){
       Transform effectContainer = Ui.transform.Find("Effects/EffectViewport/EffectContainer");
       foreach (Transform child in effectContainer){
-         GameObject.Destroy(child.gameObject);
+         Destroy(child.gameObject);
       }
       foreach(IEffect e in gameObject.GetComponent<EntityController>().Ef){
          GameObject effectView = Instantiate(UiItemPrefab, effectContainer.position, effectContainer.rotation, effectContainer);

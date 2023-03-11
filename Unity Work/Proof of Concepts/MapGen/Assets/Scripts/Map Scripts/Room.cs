@@ -4,32 +4,28 @@ using UnityEngine;
 
 [System.Serializable]
 public class Room{
-    [SerializeField] private RoomTemplate _rt;
-    [SerializeField] private EnemyTemplate _et;
+    [SerializeField] private int _rt;
+    [SerializeField] private int _et;
     [SerializeField] private Item _itemReward;
     [SerializeField] private Room parent;
     [SerializeField] private List<Room> _neighbours = new();
     [SerializeField] private int _roomkey;
     [SerializeField] private RoomState _state = RoomState.IncompleteStandard;
 
-    public Room(RoomTemplate rt, EnemyTemplate et, Item itemReward, int roomkey){
+    public Room(int rt, int et, Item itemReward, int roomkey){
         Rt = rt;
         Et = et;
         ItemReward = itemReward;
         Roomkey = roomkey;
     }
 
-    public RoomTemplate Rt { get => _rt; set => _rt = value; }
-    public EnemyTemplate Et { get => _et; set => _et = value; }
+    public int Rt { get => _rt; set => _rt = value; }
+    public int Et { get => _et; set => _et = value; }
     public Item ItemReward { get => _itemReward; set => _itemReward = value; }
     public int Roomkey { get => _roomkey; set => _roomkey = value; }
     public List<Room> Neighbours { get => _neighbours; set => _neighbours = value; }
     public Room Parent { get => parent; set => parent = value; }
     public RoomState State { get => _state; set => _state = value; }
-
-    public List<Room> AvailableNeighbours(){
-        return new List<Room>(Neighbours.Where(r => r == null));
-    }
     public string NeighboursToString(){
         string toReturn = "";
         foreach(Room r in Neighbours){

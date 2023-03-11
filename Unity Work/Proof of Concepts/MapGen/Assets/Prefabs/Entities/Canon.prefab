@@ -94,12 +94,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4354147761112865243}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fcf1f3c22dd24240a0e642b92a8832f, type: 3}
+  m_Script: {fileID: 11500000, guid: e754505995bc52845888097d6a950cb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannon: {fileID: 4354147761112865242}
   projectile: {fileID: 4321320687049702920, guid: c99b76a6e2258a6469a0842994ed8fdb, type: 3}
-  damage: 1
-  projectileSpeed: 20
-  fireSpeed: 2
+  damage: 0
+  projectileSpeed: 0
+  fireSpeed: 0
   canFire: 1

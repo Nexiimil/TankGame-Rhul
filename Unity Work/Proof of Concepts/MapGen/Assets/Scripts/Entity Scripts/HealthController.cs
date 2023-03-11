@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthController : MonoBehaviour
@@ -13,11 +11,13 @@ public class HealthController : MonoBehaviour
     public float Health { get => health; set => health = value; }
     public float MaximumHealth { get => maximumHealth; set => maximumHealth = value; }
     public float Armor { get => armor; set => armor = value; }
-
-    public EntityController getEntity() {return this.entity;}
+    public EntityController Entity { get => entity; set => entity = value; }
 
     public void TakeDamage(float d){
         Health -= d;
+        if (Health > MaximumHealth){
+            Health = MaximumHealth;
+        }
         StartCoroutine(DamageTick());
         SendMessage("PullStat");
         if (Health <= 0){  //checks to see if a unit has died
@@ -26,17 +26,19 @@ public class HealthController : MonoBehaviour
     }
 
     void Start(){
-        Stats stat = getEntity().Sa.Find(r => r.statName == "MaxHealth"); //pulls the maximum health
-        Health = (stat.flatStat * (1+stat.percentageStat));
-        stat = getEntity().Sa.Find(r => r.statName == "EntityArmor"); //pulls the armor of the unit
-        Armor = (stat.flatStat * (1+stat.percentageStat));
+        PullStat();
+        Health = MaximumHealth;
     }
+
     void PullStat()
     {
-        Stats stat = getEntity().Sa.Find(r => r.statName == "MaxHealth"); //pulls the maximum health
-        MaximumHealth = stat.flatStat * (1+stat.percentageStat);
+        Stats stat = Entity.Sa.Find(r => r.statName == "MaxHealth"); //pulls the maximum health
+        MaximumHealth = Stats.capFlatPerc(1, stat.flatStat, stat.percentageStat, 10);
+        stat = Entity.Sa.Find(r => r.statName == "EntityArmor"); //pulls the armor of the unit
+        Armor = Stats.capFlatPerc(1, stat.flatStat, stat.percentageStat, 10);
         
     }
+
     IEnumerator DamageTick(){
         Color c = gameObject.GetComponent<Renderer>().material.color;
         c.a = 0;

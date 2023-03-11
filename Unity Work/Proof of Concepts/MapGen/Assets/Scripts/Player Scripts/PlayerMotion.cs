@@ -6,17 +6,18 @@ using UnityEngine;
 public class PlayerMotion : MonoBehaviour{
     [SerializeField] private EntityController player;
     [SerializeField] private float playerSpeed;
-    EntityController getPlayer(){return this.player;}
-    void setPlayerSpeed(float playerSpeed){this.playerSpeed = playerSpeed;}
-    float getPlayerSpeed(){return this.playerSpeed;}
+
+    public float PlayerSpeed { get => playerSpeed; set => playerSpeed = value; }
+    public EntityController Player { get => player; set => player = value; }
+
     void Start(){
         PullStat();
     }
     void Update(){
-        player.getRB().velocity = new Vector2(Input.GetAxisRaw("Horizontal")*getPlayerSpeed(), Input.GetAxisRaw("Vertical")*getPlayerSpeed());
+        player.Rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal")*PlayerSpeed, Input.GetAxisRaw("Vertical")*PlayerSpeed);
     }
     void PullStat(){
-        Stats stat = getPlayer().Sa.Find(r => r.statName == "EntitySpeed");
-        setPlayerSpeed(Stats.capFlatPerc(1, stat.flatStat, stat.percentageStat, 4));
+        Stats stat = player.Sa.Find(r => r.statName == "EntitySpeed");
+        PlayerSpeed = Stats.capFlatPerc(1, stat.flatStat, stat.percentageStat, 4);
     }
 }

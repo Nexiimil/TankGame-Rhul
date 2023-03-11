@@ -7,7 +7,7 @@ public class MapController : MonoBehaviour
 
     public void NextFloor()
     {
-        map = FloorGen.Generate(15);
+        Map = FloorGen.Generate(15);
     }
 
     void Start()

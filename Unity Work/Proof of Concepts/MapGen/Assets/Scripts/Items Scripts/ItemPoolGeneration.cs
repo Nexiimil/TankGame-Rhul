@@ -8,52 +8,31 @@ using System;
 public class ItemPoolGeneration : MonoBehaviour
 {
     [SerializeField] private static List<Item> itemPool = new List<Item>();
-    [SerializeField] private string JSONFileName;
+    [SerializeField] private string jsonFileName;
 
-    static List<Item> GetItemPool(){return itemPool;}
-    static Item GetItem(int x){return itemPool[x];}
-    void SetJSONfileName(string JSONFileName){this.JSONFileName = JSONFileName;}
-    string GetJSONfileName(){return this.JSONFileName;}
-    void Start()
-    {
-        //serialiseAttempt();
-        string[] dir =  Directory.GetDirectories(System.IO.Directory.GetCurrentDirectory() + " /DataPacks");
+    public static List<Item> ItemPool { get => itemPool; set => itemPool = value; }
+    public string JSONFileName { get => jsonFileName; set => jsonFileName = value; }
+
+    void Start(){
+        string[] dir =  Directory.GetDirectories(System.IO.Directory.GetCurrentDirectory() + "/DataPacks");
         foreach(string d in dir) {
-            SetJSONfileName(d + "/Items.json");
-            using (StreamReader r = new StreamReader(GetJSONfileName())){
+            JSONFileName = d + "/Items.json";
+            using (StreamReader r = new StreamReader(JSONFileName)){
                 string json = r.ReadToEnd();
                 Debug.Log(json);
-                GetItemPool().AddRange(JsonConvert.DeserializeObject<List<Item>>(json, new JsonSerializerSettings{
+                ItemPool.AddRange(JsonConvert.DeserializeObject<List<Item>>(json, new JsonSerializerSettings{
                                                                             TypeNameHandling = TypeNameHandling.Auto
                                                                                 }));
             }
         }
-        for(int i = 0; i<GetItemPool().Count;i++){
-            Debug.Log(GetItem(i).ToString());
+        for(int i = 0; i<ItemPool.Count;i++){
+            Debug.Log(ItemPool[i].ToString());
         }
-
-        // using (StreamReader r = new StreamReader("Assets/Scripts/Items Scripts/testJson"))
-        // {
-        //     string test = r.ReadToEnd();
-        //     List<Stats> sa = JsonConvert.DeserializeObject<List<Stats>>(test);
-        //     Debug.Log(sa);
-        // }
     }
 
-    void serialiseAttempt(){
-        List<Stats> stats = new List<Stats>{
-                                            new Stats("BulletType", 0, 0),
-                                            new Stats("BulletDamage", 1, 0),
-                                            new Stats("BulletSpeed", 20, 0),
-                                        };
-        List<IEffect> effects = new List<IEffect>{new Poison(1,0,1,0,0.2f)};
-        Item itemTest = new Item("TestBlade", "Test", "Tester", stats, effects);
-        Debug.Log(itemTest.ToString());
-        Debug.Log(JsonConvert.SerializeObject(itemTest, new JsonSerializerSettings {TypeNameHandling = TypeNameHandling.Auto }));
-    }
     public static Item GenerateRandomDrop(){
         System.Random rand = new();
-        Item item = GetItem(rand.Next(0, GetItemPool().Count));
+        Item item = ItemPool[rand.Next(0, ItemPool.Count)];
         return item;
     }
 }

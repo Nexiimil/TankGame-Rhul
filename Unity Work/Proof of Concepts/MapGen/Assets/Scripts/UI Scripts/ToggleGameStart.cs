@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +6,7 @@ public class ToggleGameStart : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private GameObject[] activate;
     [SerializeField] private GameObject room;
-    [SerializeField] private GameObject player;
+
     void Start()
     {
         Application.targetFrameRate = 60;
@@ -24,20 +21,21 @@ public class ToggleGameStart : MonoBehaviour
     }
     void ToggleGame(){
         Debug.Log("Game Toggled");
-        PauseCheck pauseTrigger = GameObject.FindWithTag("StateController").GetComponent<PauseCheck>();
-        pauseTrigger.SetPaused(false);
-        pauseTrigger.UnpauseGame();
+        GameObject.Find("DeathScreen")?.SetActive(false);
         foreach(GameObject go in activate){
             go.SetActive(!go.activeSelf);
         }
         GameObject enemyPool = GameObject.FindWithTag("Enemies");
         if (enemyPool != null){
             foreach (Transform child in enemyPool?.transform){ //purges the current health bar, by iterating through each heart visible
-                GameObject.Destroy(child.gameObject); //deletes each heart object
-
+                Destroy(child.gameObject); //deletes each heart object
             }
         }
+        PauseCheck pauseTrigger = GameObject.Find("Room").GetComponent<PauseCheck>();
+        pauseTrigger.Paused = false;
+        pauseTrigger.UnpauseGame();
         room.BroadcastMessage("PullStat");
+        room.BroadcastMessage("StartGame");
     }
 }
 
