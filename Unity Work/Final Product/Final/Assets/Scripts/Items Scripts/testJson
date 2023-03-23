@@ -1,0 +1,27 @@
+[
+    {
+      "statName": "BulletType",
+      "flatStat": 1,
+      "percentageStat": 0
+    },
+    {
+      "statName": "BulletDamage",
+      "flatStat": 30,
+      "percentageStat": 0
+    },
+    {
+      "statName": "BulletSpeed",
+      "flatStat": 0,
+      "percentageStat": 0.05
+    },
+    {
+      "statName": "BulletCrit",
+      "flatStat": 0,
+      "percentageStat": 0.1
+    },
+    {
+      "statName": "PlayerArmor",
+      "flatStat": 0,
+      "percentageStat": 0.05
+    }
+  ]
